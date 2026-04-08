@@ -2,7 +2,9 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
+const bcrypt = require("bcryptjs");
 const connectDB = require("./config/db");
+const User = require("./models/User");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -34,9 +36,38 @@ app.get(/.*/, (_req, res) => {
   res.sendFile(path.join(rootDir, "index.html"));
 });
 
+async function ensureAdminFromEnv() {
+  const email = (process.env.AUTO_ADMIN_EMAIL || "").trim().toLowerCase();
+  const password = process.env.AUTO_ADMIN_PASSWORD || "";
+  const name = (process.env.AUTO_ADMIN_NAME || "Admin").trim();
+
+  if (!email || !password) return;
+
+  const passwordHash = await bcrypt.hash(password, 12);
+  const existing = await User.findOne({ email });
+
+  if (existing) {
+    existing.name = existing.name || name;
+    existing.passwordHash = passwordHash;
+    existing.role = "admin";
+    await existing.save();
+    console.log(`Admin bootstrap: updated ${email}`);
+    return;
+  }
+
+  await User.create({
+    name,
+    email,
+    passwordHash,
+    role: "admin",
+  });
+  console.log(`Admin bootstrap: created ${email}`);
+}
+
 async function start() {
   try {
     await connectDB();
+    await ensureAdminFromEnv();
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
       console.log(`Server running on port ${port}`);
