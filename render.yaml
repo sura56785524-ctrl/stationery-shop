@@ -4,7 +4,8 @@ services:
     env: node
     plan: free
     buildCommand: npm ci
-    startCommand: npm start
+    # Seed sample catalog data (only runs if DB is empty), then start the server.
+    startCommand: node backend/data/seed.js && npm start
     autoDeploy: true
     healthCheckPath: /api/health
     envVars:
