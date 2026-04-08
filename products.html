@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - InkSpire Stationery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- NAVBAR (same as index) -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-pen-fill"></i>InkSpire</a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="cart.html" class="nav-link nav-cart-btn position-relative">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="cart-count-badge" id="cart-count-badge" style="display:none;">0</span>
+                    </a>
+                    <div id="nav-auth-section"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="container">
+                <h1>Our Products</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">Products</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="container pb-5">
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="row g-3 align-items-center">
+                    <div class="col-lg-5 col-md-6">
+                        <div class="search-input-wrapper">
+                            <i class="bi bi-search"></i>
+                            <input type="text" class="form-control" id="search-input" placeholder="Search products...">
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-4">
+                        <div class="d-flex flex-wrap gap-2" id="category-filters">
+                            <button class="filter-chip active" data-category="all">All</button>
+                            <button class="filter-chip" data-category="notebooks">Notebooks</button>
+                            <button class="filter-chip" data-category="pens">Pens</button>
+                            <button class="filter-chip" data-category="pencils">Pencils</button>
+                            <button class="filter-chip" data-category="art-supplies">Art</button>
+                            <button class="filter-chip" data-category="paper">Paper</button>
+                            <button class="filter-chip" data-category="organizers">Organizers</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2">
+                        <select class="form-select sort-select" id="sort-select">
+                            <option value="newest">Newest</option>
+                            <option value="price-low">Price: Low-High</option>
+                            <option value="price-high">Price: High-Low</option>
+                            <option value="name-az">Name: A-Z</option>
+                            <option value="rating">Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results info -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <p class="text-muted mb-0" id="results-count">Loading products...</p>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-outline-secondary" id="view-grid" title="Grid View">
+                        <i class="bi bi-grid-3x3-gap-fill"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary" id="view-list" title="List View">
+                        <i class="bi bi-list-ul"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="row g-4" id="products-grid">
+                <!-- Skeletons -->
+                <div class="col-xl-3 col-lg-4 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                <div class="col-xl-3 col-lg-4 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                <div class="col-xl-3 col-lg-4 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                <div class="col-xl-3 col-lg-4 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                <div class="col-xl-3 col-lg-4 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                <div class="col-xl-3 col-lg-4 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                <div class="col-xl-3 col-lg-4 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                <div class="col-xl-3 col-lg-4 col-md-6"><div class="skeleton skeleton-card"></div></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="modal fade product-detail-modal" id="productDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="product-detail-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (same as index) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><i class="bi bi-pen-fill"></i>InkSpire</div>
+                    <p class="footer-description">Your one-stop shop for premium stationery, art supplies, and office essentials.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=notebooks">Notebooks</a></li>
+                        <li><a href="products.html?category=pens">Pens</a></li>
+                        <li><a href="products.html?category=art-supplies">Art Supplies</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6>Contact</h6>
+                    <ul class="footer-links footer-contact">
+                        <li><i class="bi bi-envelope"></i><span>sura56785524@gmail.com</span></li>
+                        <li><i class="bi bi-telephone"></i><span>+251956785524</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p>&copy; 2026 InkSpire. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top"><i class="bi bi-chevron-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

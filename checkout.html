@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - InkSpire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-pen-fill"></i>InkSpire</a>
+            <div class="d-flex align-items-center gap-3">
+                <a href="cart.html" class="nav-link nav-cart-btn position-relative">
+                    <i class="bi bi-cart3 fs-5"></i>
+                    <span class="cart-count-badge" id="cart-count-badge" style="display:none;">0</span>
+                </a>
+                <div id="nav-auth-section"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Checkout</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="cart.html">Cart</a></li>
+                        <li class="breadcrumb-item active">Checkout</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="container pb-5">
+            <!-- Checkout Steps -->
+            <div class="checkout-steps mb-4">
+                <div class="checkout-step completed"><span class="step-number">✓</span><span>Cart</span></div>
+                <div class="checkout-step-connector completed"></div>
+                <div class="checkout-step active"><span class="step-number">2</span><span>Shipping & Payment</span></div>
+                <div class="checkout-step-connector"></div>
+                <div class="checkout-step"><span class="step-number">3</span><span>Confirmation</span></div>
+            </div>
+
+            <div class="row g-4" id="checkout-content">
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm rounded-custom p-4 mb-4">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-geo-alt me-2"></i>Shipping Address</h5>
+                        <form id="checkout-form" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="ship-name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="ship-phone" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Street Address</label>
+                                    <input type="text" class="form-control" id="ship-address" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">City</label>
+                                    <input type="text" class="form-control" id="ship-city" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">State/Province</label>
+                                    <input type="text" class="form-control" id="ship-state" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Zip Code</label>
+                                    <input type="text" class="form-control" id="ship-zip" required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card border-0 shadow-sm rounded-custom p-4">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-credit-card me-2"></i>Payment Method</h5>
+                        <div class="d-flex flex-column gap-3" id="payment-methods">
+                            <div class="payment-option selected" data-method="cod" onclick="checkoutPage.selectPayment(this)">
+                                <div class="payment-radio"></div>
+                                <i class="bi bi-cash-stack fs-4 text-success"></i>
+                                <div>
+                                    <div class="fw-bold">Cash on Delivery</div>
+                                    <div class="small text-muted">Pay when you receive your order</div>
+                                </div>
+                            </div>
+                            <div class="payment-option" data-method="cbe-transfer" onclick="checkoutPage.selectPayment(this)">
+                                <div class="payment-radio"></div>
+                                <i class="bi bi-bank fs-4 text-primary"></i>
+                                <div>
+                                    <div class="fw-bold">CBE Transfer</div>
+                                    <div class="small text-muted">Account Number: <strong>1000583706187</strong></div>
+                                </div>
+                            </div>
+                            <div class="payment-option" data-method="telebirr" onclick="checkoutPage.selectPayment(this)">
+                                <div class="payment-radio"></div>
+                                <i class="bi bi-phone fs-4 text-warning"></i>
+                                <div>
+                                    <div class="fw-bold">Telebirr</div>
+                                    <div class="small text-muted">Telebirr Number: <strong>0956785524</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-info mt-3 mb-0" id="payment-help-text">
+                            Cash on Delivery selected.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="cart-summary">
+                        <div class="cart-summary-card">
+                            <h5><i class="bi bi-receipt me-2"></i>Order Summary</h5>
+                            <div id="checkout-items-list" class="mb-3"></div>
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span class="fw-semibold" id="checkout-subtotal">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax (8%)</span>
+                                <span class="fw-semibold" id="checkout-tax">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span class="fw-semibold" id="checkout-shipping">$0.00</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span class="text-primary" id="checkout-total">$0.00</span>
+                            </div>
+                            <button class="btn btn-primary w-100 btn-lg mt-4" id="place-order-btn" onclick="checkoutPage.placeOrder()">
+                                <i class="bi bi-check-circle me-1"></i>Place Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container"><div class="footer-bottom text-center"><p>&copy; 2024 InkSpire. All rights reserved.</p></div></div>
+    </footer>
+    <button id="back-to-top"><i class="bi bi-chevron-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        class CheckoutPage {
+            constructor() {
+                this.selectedPayment = 'cod';
+                this.paymentLabelMap = {
+                    cod: 'Cash on Delivery',
+                    'cbe-transfer': 'CBE Transfer',
+                    telebirr: 'Telebirr'
+                };
+                this.init();
+            }
+
+            async init() {
+                await authService.onAuthReady();
+                if (!authService.isLoggedIn()) {
+                    toast.warning('Please login to checkout.');
+                    setTimeout(() => { window.location.href = 'login.html?redirect=checkout.html'; }, 1000);
+                    return;
+                }
+                await cartService.loadCart();
+                if (cartService.items.length === 0) {
+                    toast.warning('Your cart is empty.');
+                    setTimeout(() => { window.location.href = 'products.html'; }, 1000);
+                    return;
+                }
+                this.prefillUserInfo();
+                this.renderSummary();
+            }
+
+            prefillUserInfo() {
+                if (authService.currentUserData) {
+                    const u = authService.currentUserData;
+                    document.getElementById('ship-name').value = u.name || '';
+                    document.getElementById('ship-phone').value = u.phone || '';
+                }
+            }
+
+            renderSummary() {
+                const list = document.getElementById('checkout-items-list');
+                list.innerHTML = cartService.items.map(item => `
+                    <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="font-size:0.85rem;">
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="${item.imageURL}" alt="" style="width:40px;height:40px;border-radius:6px;object-fit:cover;">
+                            <div>
+                                <div class="fw-semibold">${item.title}</div>
+                                <div class="text-muted">x${item.quantity}</div>
+                            </div>
+                        </div>
+                        <span class="fw-semibold">$${(item.price * item.quantity).toFixed(2)}</span>
+                    </div>
+                `).join('');
+
+                document.getElementById('checkout-subtotal').textContent = '$' + cartService.getSubtotal().toFixed(2);
+                document.getElementById('checkout-tax').textContent = '$' + cartService.getTax().toFixed(2);
+                const shipping = cartService.getShipping();
+                document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'FREE' : '$' + shipping.toFixed(2);
+                document.getElementById('checkout-total').textContent = '$' + cartService.getTotal().toFixed(2);
+            }
+
+            selectPayment(el) {
+                document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+                el.classList.add('selected');
+                this.selectedPayment = el.dataset.method;
+                const helpText = document.getElementById('payment-help-text');
+                if (helpText) {
+                    if (this.selectedPayment === 'cbe-transfer') {
+                        helpText.innerHTML = 'Please transfer to CBE account <strong>1000583706187</strong> and keep your payment receipt.';
+                    } else if (this.selectedPayment === 'telebirr') {
+                        helpText.innerHTML = 'Please send payment to Telebirr number <strong>0956785524</strong> and keep your payment receipt.';
+                    } else {
+                        helpText.textContent = 'Cash on Delivery selected.';
+                    }
+                }
+            }
+
+            async placeOrder() {
+                const name = document.getElementById('ship-name').value.trim();
+                const phone = document.getElementById('ship-phone').value.trim();
+                const address = document.getElementById('ship-address').value.trim();
+                const city = document.getElementById('ship-city').value.trim();
+                const state = document.getElementById('ship-state').value.trim();
+                const zip = document.getElementById('ship-zip').value.trim();
+
+                if (!name || !phone || !address || !city || !state || !zip) {
+                    toast.warning('Please fill in all shipping fields.');
+                    return;
+                }
+
+                const btn = document.getElementById('place-order-btn');
+                btn.disabled = true;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>Processing...';
+
+                try {
+                    const orderData = {
+                        userId: authService.getUID(),
+                        userName: authService.currentUserData?.name || name,
+                        userEmail: authService.currentUser.email,
+                        items: cartService.items,
+                        subtotal: cartService.getSubtotal(),
+                        tax: cartService.getTax(),
+                        shipping: cartService.getShipping(),
+                        totalPrice: cartService.getTotal(),
+                        shippingAddress: { name, phone, address, city, state, zip },
+                        paymentMethod: this.selectedPayment
+                    };
+
+                    const result = await DatabaseService.createOrder(orderData);
+                    if (result.success) {
+                        await cartService.clearAllItems();
+                        toast.success('🎉 Order placed successfully!');
+
+                        // Show success page
+                        document.getElementById('checkout-content').innerHTML = `
+                            <div class="col-12 text-center py-5">
+                                <div class="mb-4">
+                                    <div style="width:100px;height:100px;border-radius:50%;background:#D1FAE5;margin:0 auto;display:flex;align-items:center;justify-content:center;">
+                                        <i class="bi bi-check-lg text-success" style="font-size:3rem;"></i>
+                                    </div>
+                                </div>
+                                <h2 class="fw-bold mb-2">Order Placed Successfully! 🎉</h2>
+                                <p class="text-muted mb-4">Thank you for your purchase. You'll receive a confirmation email shortly.</p>
+                                <p class="mb-4"><span class="badge bg-light text-dark">Payment Method: ${this.paymentLabelMap[this.selectedPayment] || this.selectedPayment}</span></p>
+                                <div class="d-flex justify-content-center gap-3">
+                                    <a href="dashboard.html" class="btn btn-primary">
+                                        <i class="bi bi-speedometer2 me-1"></i>View Orders
+                                    </a>
+                                    <a href="products.html" class="btn btn-outline-primary">
+                                        <i class="bi bi-bag me-1"></i>Continue Shopping
+                                    </a>
+                                </div>
+                            </div>`;
+                    } else {
+                        throw new Error(result.error);
+                    }
+                } catch (error) {
+                    toast.error('Failed to place order. Please try again.');
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="bi bi-check-circle me-1"></i>Place Order';
+                }
+            }
+        }
+
+        const checkoutPage = new CheckoutPage();
+    </script>
+</body>
+</html>

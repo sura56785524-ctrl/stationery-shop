@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FULLPACK STATIONERY - Premium Stationery Shop</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- ============================================================
+         NAVBAR
+         ============================================================ -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-pen-fill"></i>
+                InkSpire
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="cart.html" class="nav-link nav-cart-btn position-relative">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="cart-count-badge" id="cart-count-badge" style="display:none;">0</span>
+                    </a>
+                    <div id="nav-auth-section">
+                        <a href="login.html" class="btn btn-outline-primary btn-sm me-2">
+                            <i class="bi bi-box-arrow-in-right me-1"></i>Login
+                        </a>
+                        <a href="register.html" class="btn btn-primary btn-sm">
+                            <i class="bi bi-person-plus me-1"></i>Register
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ============================================================
+             HERO CAROUSEL
+             ============================================================ -->
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active carousel-slide-1">
+                    <div class="container h-100">
+                        <div class="row align-items-center" style="min-height:85vh;">
+                            <div class="col-lg-6 hero-content">
+                                <div class="hero-badge">
+                                    <i class="bi bi-star-fill"></i>
+                                    Premium Stationery Collection
+                                </div>
+                                <h1 class="hero-title">
+                                    Inspire Your <span>Creativity</span> Every Day
+                                </h1>
+                                <p class="hero-description">
+                                    Discover our curated collection of premium notebooks, pens, art supplies, 
+                                    and more. Everything you need to bring your ideas to life.
+                                </p>
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <a href="products.html" class="btn btn-primary btn-lg">
+                                        <i class="bi bi-bag-heart"></i>
+                                        Shop Now
+                                    </a>
+                                    <a href="about.html" class="btn btn-outline-primary btn-lg">
+                                        <i class="bi bi-play-circle"></i>
+                                        Learn More
+                                    </a>
+                                </div>
+                                <div class="hero-stats">
+                                    <div class="hero-stat">
+                                        <h3>500+</h3>
+                                        <p>Products</p>
+                                    </div>
+                                    <div class="hero-stat">
+                                        <h3>10K+</h3>
+                                        <p>Happy Customers</p>
+                                    </div>
+                                    <div class="hero-stat">
+                                        <h3>4.9★</h3>
+                                        <p>Average Rating</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-block">
+                                <div class="hero-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=600" 
+                                         alt="Stationery Collection" class="img-fluid">
+                                    <div class="hero-floating-card card-1">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="bi bi-truck text-primary fs-5"></i>
+                                            <div>
+                                                <div class="fw-bold small">Free Shipping</div>
+                                                <div class="text-muted" style="font-size:0.75rem;">Orders $50+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hero-floating-card card-2">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="bi bi-shield-check text-success fs-5"></i>
+                                            <div>
+                                                <div class="fw-bold small">Quality Guarantee</div>
+                                                <div class="text-muted" style="font-size:0.75rem;">Premium Brands</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item carousel-slide-2">
+                    <div class="container h-100">
+                        <div class="row align-items-center" style="min-height:85vh;">
+                            <div class="col-lg-6 hero-content">
+                                <div class="hero-badge">
+                                    <i class="bi bi-palette-fill"></i>
+                                    Art Supplies Collection
+                                </div>
+                                <h1 class="hero-title">
+                                    Unleash Your <span>Artistic</span> Potential
+                                </h1>
+                                <p class="hero-description">
+                                    From watercolors to acrylics, sketchbooks to canvases — find professional 
+                                    grade art supplies for every medium and skill level.
+                                </p>
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <a href="products.html?category=art-supplies" class="btn btn-secondary btn-lg">
+                                        <i class="bi bi-palette"></i>
+                                        Explore Art Supplies
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-block">
+                                <div class="hero-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600" 
+                                         alt="Art Supplies" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-item carousel-slide-3">
+                    <div class="container h-100">
+                        <div class="row align-items-center" style="min-height:85vh;">
+                            <div class="col-lg-6 hero-content">
+                                <div class="hero-badge">
+                                    <i class="bi bi-percent"></i>
+                                    Special Offers
+                                </div>
+                                <h1 class="hero-title">
+                                    Up to <span>40% Off</span> This Week
+                                </h1>
+                                <p class="hero-description">
+                                    Don't miss our exclusive weekly deals on notebooks, pen sets, 
+                                    and art kits. Premium quality at unbeatable prices.
+                                </p>
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <a href="products.html" class="btn btn-primary btn-lg">
+                                        <i class="bi bi-lightning-fill"></i>
+                                        View Deals
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-block">
+                                <div class="hero-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600" 
+                                         alt="Special Deals" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev d-none d-lg-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next d-none d-lg-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <!-- ============================================================
+             FEATURES / SERVICES
+             ============================================================ -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="feature-card">
+                            <div class="feature-icon bg-primary-soft text-primary">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <h5>Free Shipping</h5>
+                            <p>Free delivery on all orders above $50. Fast & reliable shipping worldwide.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="feature-card">
+                            <div class="feature-icon bg-success-soft text-success">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h5>Quality Guarantee</h5>
+                            <p>All products are sourced from trusted brands with quality assurance.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="feature-card">
+                            <div class="feature-icon bg-warning-soft text-warning">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </div>
+                            <h5>Easy Returns</h5>
+                            <p>30-day hassle-free return policy. No questions asked.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="feature-card">
+                            <div class="feature-icon bg-info-soft text-info">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                            <h5>24/7 Support</h5>
+                            <p>Dedicated customer support team ready to help anytime.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CATEGORIES
+             ============================================================ -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll">
+                    <h2 class="section-title text-center">Shop by Category</h2>
+                    <p class="section-subtitle mx-auto mt-3">Browse our carefully curated categories to find exactly what you need.</p>
+                </div>
+                <div class="row g-4" id="categories-grid">
+                    <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+                        <a href="products.html?category=notebooks" class="text-decoration-none">
+                            <div class="category-card d-flex flex-column align-items-center justify-content-center p-3">
+                                <div class="category-icon bg-primary-soft text-primary">
+                                    <i class="bi bi-journal-richtext"></i>
+                                </div>
+                                <div class="category-name">Notebooks</div>
+                                <div class="category-count">24+ Items</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+                        <a href="products.html?category=pens" class="text-decoration-none">
+                            <div class="category-card d-flex flex-column align-items-center justify-content-center p-3">
+                                <div class="category-icon bg-success-soft text-success">
+                                    <i class="bi bi-pen"></i>
+                                </div>
+                                <div class="category-name">Pens</div>
+                                <div class="category-count">36+ Items</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+                        <a href="products.html?category=pencils" class="text-decoration-none">
+                            <div class="category-card d-flex flex-column align-items-center justify-content-center p-3">
+                                <div class="category-icon bg-warning-soft" style="color:var(--secondary);">
+                                    <i class="bi bi-pencil"></i>
+                                </div>
+                                <div class="category-name">Pencils</div>
+                                <div class="category-count">18+ Items</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+                        <a href="products.html?category=art-supplies" class="text-decoration-none">
+                            <div class="category-card d-flex flex-column align-items-center justify-content-center p-3">
+                                <div class="category-icon bg-danger-soft text-danger">
+                                    <i class="bi bi-palette"></i>
+                                </div>
+                                <div class="category-name">Art Supplies</div>
+                                <div class="category-count">42+ Items</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+                        <a href="products.html?category=paper" class="text-decoration-none">
+                            <div class="category-card d-flex flex-column align-items-center justify-content-center p-3">
+                                <div class="category-icon bg-info-soft text-info">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="category-name">Paper</div>
+                                <div class="category-count">15+ Items</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+                        <a href="products.html?category=organizers" class="text-decoration-none">
+                            <div class="category-card d-flex flex-column align-items-center justify-content-center p-3">
+                                <div class="category-icon" style="background:#F3E8FF;color:#9333EA;">
+                                    <i class="bi bi-grid"></i>
+                                </div>
+                                <div class="category-name">Organizers</div>
+                                <div class="category-count">12+ Items</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             FEATURED PRODUCTS
+             ============================================================ -->
+        <section class="py-5">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-3 animate-on-scroll">
+                    <div>
+                        <h2 class="section-title">Featured Products</h2>
+                        <p class="section-subtitle mt-3">Hand-picked favorites from our best sellers.</p>
+                    </div>
+                    <a href="products.html?featured=true" class="btn btn-outline-primary">
+                        View All <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+                <div class="row g-4" id="featured-products-grid">
+                    <!-- Products loaded dynamically -->
+                    <div class="col-lg-3 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                    <div class="col-lg-3 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                    <div class="col-lg-3 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                    <div class="col-lg-3 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             PROMOTIONAL BANNER
+             ============================================================ -->
+        <section class="py-5 bg-white animate-on-scroll">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=600" 
+                             alt="Bullet Journal" class="img-fluid rounded-custom shadow-lg-custom">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-badge mb-3">
+                            <i class="bi bi-fire"></i>
+                            Best Seller
+                        </div>
+                        <h2 class="section-title">Bullet Journal Starter Kit</h2>
+                        <p class="text-muted mt-3 mb-4" style="line-height:1.8;">
+                            Everything you need to start your bullet journaling journey. 
+                            Includes a premium dotted notebook, dual-tip markers, stencils, 
+                            and our exclusive beginner's guide. Join thousands of happy journalers!
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <span class="product-price fs-3">$32.99</span>
+                            <span class="product-original-price fs-5">$42.99</span>
+                            <span class="product-discount">23% OFF</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>A5 Dotted Notebook (200 pages)</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>12 Dual-tip Markers</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>6 Drawing Stencils</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Washi Tape Roll</li>
+                        </ul>
+                        <a href="products.html" class="btn btn-primary btn-lg">
+                            <i class="bi bi-bag-heart"></i>
+                            Shop Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             TRENDING PRODUCTS
+             ============================================================ -->
+        <section class="py-5">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-3 animate-on-scroll">
+                    <div>
+                        <h2 class="section-title">Trending Now 🔥</h2>
+                        <p class="section-subtitle mt-3">What everyone is loving right now.</p>
+                    </div>
+                    <a href="products.html?trending=true" class="btn btn-outline-primary">
+                        View All <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+                <div class="row g-4" id="trending-products-grid">
+                    <div class="col-lg-3 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                    <div class="col-lg-3 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                    <div class="col-lg-3 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                    <div class="col-lg-3 col-md-6"><div class="skeleton skeleton-card"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             TESTIMONIALS
+             ============================================================ -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll">
+                    <h2 class="section-title text-center">What Our Customers Say</h2>
+                    <p class="section-subtitle mx-auto mt-3">Real reviews from real stationery lovers.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 animate-on-scroll">
+                        <div class="testimonial-card">
+                            <i class="bi bi-quote quote-icon"></i>
+                            <div class="mb-3">
+                                <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                            </div>
+                            <p class="testimonial-text">
+                                "The notebook quality is absolutely incredible. The paper is thick, smooth, 
+                                and handles my fountain pen ink beautifully. I've been a customer for 2 years now!"
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">S</div>
+                                <div>
+                                    <div class="author-name">Sarah Mitchell</div>
+                                    <div class="author-role">Art Student</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 animate-on-scroll">
+                        <div class="testimonial-card">
+                            <i class="bi bi-quote quote-icon"></i>
+                            <div class="mb-3">
+                                <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                            </div>
+                            <p class="testimonial-text">
+                                "Fast shipping and the packaging was so thoughtful! Every item was carefully 
+                                wrapped. The gel pen set is now my absolute favorite for bullet journaling."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">J</div>
+                                <div>
+                                    <div class="author-name">James Rodriguez</div>
+                                    <div class="author-role">Graphic Designer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 animate-on-scroll">
+                        <div class="testimonial-card">
+                            <i class="bi bi-quote quote-icon"></i>
+                            <div class="mb-3">
+                                <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+                            </div>
+                            <p class="testimonial-text">
+                                "Best stationery shop online! The watercolor set exceeded my expectations. 
+                                Colors are vibrant and the brushes included are actually high quality."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">E</div>
+                                <div>
+                                    <div class="author-name">Emily Chen</div>
+                                    <div class="author-role">Watercolor Artist</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             NEWSLETTER
+             ============================================================ -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h3>Stay in the Loop ✉️</h3>
+                        <p>Subscribe for exclusive deals, new arrivals, and stationery inspiration.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <form id="newsletter-form" class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Enter your email address" required>
+                                <button class="btn btn-secondary" type="submit">
+                                    <i class="bi bi-send me-1"></i> Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <i class="bi bi-pen-fill"></i>
+                        InkSpire
+                    </div>
+                    <p class="footer-description">
+                        Your one-stop shop for premium stationery, art supplies, and office essentials. 
+                        Inspiring creativity since 2026.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/inkspire_fullpack_stationery/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="dashboard.html">My Account</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=notebooks">Notebooks</a></li>
+                        <li><a href="products.html?category=pens">Pens</a></li>
+                        <li><a href="products.html?category=pencils">Pencils</a></li>
+                        <li><a href="products.html?category=art-supplies">Art Supplies</a></li>
+                        <li><a href="products.html?category=paper">Paper</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6>Contact Us</h6>
+                    <ul class="footer-links footer-contact">
+                        <li>
+                            <i class="bi bi-geo-alt"></i>
+                            <span>123 Stationery Lane, Creative City, CC 10001</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i>
+                            <span>+251956785524</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope"></i>
+                            <span>sura56785524@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-clock"></i>
+                            <span>Mon - Fri: 9AM - 6PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <p>&copy; 2026 InkSpire. All rights reserved.</p>
+                <div class="payment-icons">
+                    <i class="bi bi-credit-card-2-front"></i>
+                    <i class="bi bi-paypal"></i>
+                    <i class="bi bi-stripe"></i>
+                    <i class="bi bi-wallet2"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Back to top">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <!-- Product Detail Modal -->
+    <div class="modal fade product-detail-modal" id="productDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="product-detail-body">
+                    <!-- Filled dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // ============================================================
+        // HOME PAGE CONTROLLER
+        // ============================================================
+        class HomePage {
+            constructor() {
+                this.init();
+            }
+
+            async init() {
+                await authService.onAuthReady();
+                // Seed products if needed
+                await DatabaseService.seedProducts();
+                this.loadFeaturedProducts();
+                this.loadTrendingProducts();
+            }
+
+            async loadFeaturedProducts() {
+                const grid = document.getElementById('featured-products-grid');
+                try {
+                    const result = await DatabaseService.getFeaturedProducts();
+                    if (result.success && result.data.length > 0) {
+                        grid.innerHTML = result.data.map(product => this.renderProductCard(product)).join('');
+                    } else {
+                        const allResult = await DatabaseService.getAllProducts();
+                        if (allResult.success) {
+                            grid.innerHTML = allResult.data.slice(0, 8).map(product => this.renderProductCard(product)).join('');
+                        }
+                    }
+                } catch (error) {
+                    grid.innerHTML = '<div class="col-12 text-center text-muted py-5">Unable to load products.</div>';
+                }
+            }
+
+            async loadTrendingProducts() {
+                const grid = document.getElementById('trending-products-grid');
+                try {
+                    const result = await DatabaseService.getTrendingProducts();
+                    if (result.success && result.data.length > 0) {
+                        grid.innerHTML = result.data.map(product => this.renderProductCard(product)).join('');
+                    } else {
+                        const allResult = await DatabaseService.getAllProducts();
+                        if (allResult.success) {
+                            const shuffled = allResult.data.sort(() => 0.5 - Math.random());
+                            grid.innerHTML = shuffled.slice(0, 8).map(product => this.renderProductCard(product)).join('');
+                        }
+                    }
+                } catch (error) {
+                    grid.innerHTML = '<div class="col-12 text-center text-muted py-5">Unable to load products.</div>';
+                }
+            }
+
+            renderProductCard(product) {
+                const discount = product.originalPrice > product.price
+                    ? Math.round((1 - product.price / product.originalPrice) * 100)
+                    : 0;
+
+                const stars = this.renderStars(product.rating || 4);
+                const stockClass = product.stock <= 10 ? 'low-stock' : 'in-stock';
+                const stockText = product.stock <= 10 ? `Only ${product.stock} left!` : 'In Stock';
+
+                return `
+                <div class="col-xl-3 col-lg-4 col-md-6 fade-in">
+                    <div class="card product-card h-100">
+                        <div class="card-img-wrapper">
+                            <img src="${product.imageURL}" alt="${product.title}" loading="lazy">
+                            <div class="product-badges">
+                                ${discount > 0 ? `<span class="product-badge sale">${discount}% OFF</span>` : ''}
+                                ${product.featured ? '<span class="product-badge featured">Featured</span>' : ''}
+                                ${product.trending ? '<span class="product-badge trending">Trending</span>' : ''}
+                            </div>
+                            <div class="product-actions">
+                                <button class="action-btn" onclick="homePage.viewProduct('${product.id}')" title="Quick View">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                                <button class="action-btn" onclick="homePage.addToWishlist('${product.id}')" title="Wishlist">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <div class="product-category">${product.category.replace('-', ' ')}</div>
+                            <h6 class="product-title">${product.title}</h6>
+                            <div class="product-rating">
+                                <div class="stars">${stars}</div>
+                                <span class="rating-text">(${product.reviewCount || 0})</span>
+                            </div>
+                            <div class="product-price-section">
+                                <span class="product-price">$${product.price.toFixed(2)}</span>
+                                ${discount > 0 ? `<span class="product-original-price">$${product.originalPrice.toFixed(2)}</span>` : ''}
+                            </div>
+                            <div class="product-stock ${stockClass}">
+                                <i class="bi bi-circle-fill" style="font-size:0.5rem;"></i> ${stockText}
+                            </div>
+                            <button class="btn btn-primary add-to-cart-btn mt-auto" onclick="homePage.addToCart('${product.id}')">
+                                <i class="bi bi-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+            renderStars(rating) {
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= Math.floor(rating)) {
+                        stars += '<i class="bi bi-star-fill"></i>';
+                    } else if (i - 0.5 <= rating) {
+                        stars += '<i class="bi bi-star-half"></i>';
+                    } else {
+                        stars += '<i class="bi bi-star"></i>';
+                    }
+                }
+                return stars;
+            }
+
+            async addToCart(productId) {
+                const result = await DatabaseService.getProduct(productId);
+                if (result.success) {
+                    await cartService.addItem(result.data);
+                }
+            }
+
+            async viewProduct(productId) {
+                const result = await DatabaseService.getProduct(productId);
+                if (result.success) {
+                    const product = result.data;
+                    const discount = product.originalPrice > product.price
+                        ? Math.round((1 - product.price / product.originalPrice) * 100)
+                        : 0;
+
+                    document.getElementById('product-detail-body').innerHTML = `
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <img src="${product.imageURL}" alt="${product.title}" class="product-detail-image">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-category">${product.category.replace('-', ' ')}</div>
+                                <h3 class="detail-title">${product.title}</h3>
+                                <div class="product-rating mb-3">
+                                    <div class="stars text-warning">${this.renderStars(product.rating || 4)}</div>
+                                    <span class="rating-text">(${product.reviewCount || 0} reviews)</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <span class="detail-price">$${product.price.toFixed(2)}</span>
+                                    ${discount > 0 ? `<span class="product-original-price fs-5">$${product.originalPrice.toFixed(2)}</span>
+                                    <span class="product-discount">${discount}% OFF</span>` : ''}
+                                </div>
+                                <p class="detail-description">${product.description}</p>
+                                <div class="d-flex gap-2 mb-3">
+                                    <span class="badge bg-light text-dark border">${product.brand || 'InkSpire'}</span>
+                                    <span class="badge ${product.stock > 10 ? 'bg-success' : 'bg-danger'}">${product.stock > 0 ? product.stock + ' in stock' : 'Out of stock'}</span>
+                                </div>
+                                <div class="d-flex gap-2 mt-4">
+                                    <button class="btn btn-primary flex-grow-1" onclick="homePage.addToCart('${product.id}');bootstrap.Modal.getInstance(document.getElementById('productDetailModal')).hide();">
+                                        <i class="bi bi-cart-plus"></i> Add to Cart
+                                    </button>
+                                    <button class="btn btn-outline-primary btn-icon">
+                                        <i class="bi bi-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>`;
+                    new bootstrap.Modal(document.getElementById('productDetailModal')).show();
+                }
+            }
+
+            addToWishlist(productId) {
+                toast.info('Wishlist feature coming soon! ❤️');
+            }
+        }
+
+        const homePage = new HomePage();
+    </script>
+</body>
+</html>

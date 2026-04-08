@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: inkspire-shop
+    env: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      # Set these in Render dashboard (do not commit real secrets)
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB
+        value: inkspire_shop
+      - key: JWT_SECRET
+        sync: false
+      # Optional AI assistant keys
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-1.5-flash
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: AI_PROVIDER
+        value: auto
+
