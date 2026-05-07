@@ -239,7 +239,385 @@ class I18n {
                 error_message: 'ስህተት ተፈጥሯል። እባክዎ እንደገና ይሞክሩ።',
                 required_field: 'ይህ መስክ ግዴታ ነው',
                 invalid_email: 'እባክዎ ትክክለኛውን ኢሜይል አድርገው ያስገቡ',
-                password_mismatch: 'የይለፍ ቃሎች አይዛመዱም'
+                password_mismatch: 'የይለፍ ቃሎች አይዛመዱም',
+                
+                // Homepage Hero Section
+                hero_badge_premium: 'ፍሬምየም የመለያ ስብስብ',
+                hero_title_inspire: 'ፈጣሪነትዎን በየካዲው ቀን',
+                hero_description_home: 'የፍሬምየም የመጽሐፍ መዋቻዎች፣ እራሳዎች፣ የጥበብ እቃዎች እና የበለጠውን ያግኙ። ለሐሳባችሁን ህይወት ማስማሚያ የሚያስፈልጉትን ሁሉንም ነገር ያግኙ።',
+                hero_shop_now: 'ይግዙ',
+                hero_learn_more: 'የበለጠውን ይዩ',
+                hero_products_label: 'እቃዎች',
+                hero_customers_label: 'ደንበኞች',
+                hero_rating_label: 'አማካይ ደረጃ',
+                
+                // Features Section
+                feature_free_shipping: 'ነጻ መላክ',
+                feature_free_shipping_desc: 'ለሁሉም ትዥዛዞች ETB 2,750 እና ከዚያ በላይ ነጻ መላክ። ፈጣን እና አስተማማኪ መላክ በዓለም ዙሪያ።',
+                feature_quality_guarantee: 'ጥራዝ ዋስትና',
+                feature_quality_guarantee_desc: 'ሁሉም እቃዎች ከተለመዱ ምርቶች ከጥራዝ ማረጋገጫ ጋር ይገኛሉ።',
+                feature_easy_returns: 'ቀላል መመለሻ',
+                feature_easy_returns_desc: '30-ቀን ምንም ጥያቄ የለሽ መመለሻ ፖሊሲ።',
+                feature_support: '24/7 ድጋፍ',
+                feature_support_desc: 'በማንኛም ጊዜ ለመርዳት ዝግጁ የደንበኛ አገልግሎት ቡድን።',
+                
+                // Homepage Additional Content
+                hero_badge_art: 'የጥበብ እቃዎች ስብስብ',
+                hero_title_artistic: 'የጥበብ ወሰብዎን ይለቁሉ',
+                hero_description_art: 'ከውነታዎች እስከ አክሪሊኮች፣ ከስኬትብሮኮች እስከ ካንቫሶች — ለእያንዳንዱ መገለጫ እና ለእያንዳንዱ የስልጠና ደረጃ የሙያ ደረጃ የጥበብ እቃዎችን ያግኙ።',
+                hero_explore_art: 'የጥበብ እቃዎችን ያግኙ',
+                
+                hero_badge_offers: 'የተለየ አማራጮች',
+                hero_title_offers: 'ይልእም 40% ቅናሽ ይልእም ይልእም ይልእም',
+                hero_description_offers: 'የተለየ የሳምንታዊ ሽውዎችን እናብዳበሁ። የፍሬምየም ጥራዝ በማስማሚያ ዋጋ።',
+                hero_view_deals: 'ሽውዎችን ይመልከቱ',
+                
+                // Authentication
+                login_title: 'መግቢያ',
+                register_title: 'ምዝገባ',
+                email: 'ኢሜይል',
+                password: 'የይለፍ ቃል',
+                confirm_password: 'የይለፍ ቃል ያረጋግጡ',
+                full_name: 'ሙሉ ስም',
+                phone_number: 'ስልክ ቁጥር',
+                remember_me: 'አሳስታልኝ',
+                forgot_password: 'የይለፍ ቃልዎን ረሳው?',
+                already_have_account: 'መለያ አለዎት?',
+                dont_have_account: 'መለያ የለዎትም?',
+                
+                // Product Details
+                product_details: 'የእቃ ዝርዝሮች',
+                product_description: 'የእቃ መግለጫ',
+                product_brand: 'ምርት',
+                product_category: 'ምድብ',
+                product_stock: 'በስቶክ ውስጥ',
+                product_rating: 'ደረጃ',
+                product_reviews: 'ግምገማዎች',
+                product_add_to_cart: 'ወደ ሳጥን ጨምር',
+                product_buy_now: 'አሁን ይግዙ',
+                
+                // Order Processing
+                order_placed: 'ትዥዛዝ ተሰጥቷል',
+                order_processing: 'ትዥዛዝ በማቀናቅ ላይ',
+                order_shipped: 'ትዥዛዝ ተልኳል',
+                order_delivered: 'ትዥዛዝ ተሰጥቷል',
+                order_cancelled: 'ትዥዛዝ ተሰርዟል',
+                
+                // Error Messages
+                error_network: 'አውታር ግንኙነት ስህተት',
+                error_server: 'የአገልጋይ ስህተት',
+                error_validation: 'የማረጋገጫ ስህተት',
+                error_not_found: 'አልተገኘም',
+                error_unauthorized: 'ያልተፈቀደ',
+                error_forbidden: 'የተከለከለ',
+                
+                // Success Messages
+                success_added: 'ተጨምረዋል',
+                success_updated: 'ተዘምኗል',
+                success_deleted: 'ተሰርዟል',
+                success_saved: 'ተቀመጠ',
+                success_copied: 'ተቀጠረ',
+                
+                // Common Actions
+                action_view: 'ይመልከቱ',
+                action_edit: 'አርም',
+                action_delete: 'አጥፋ',
+                action_save: 'አስቀምጥ',
+                action_cancel: 'ይቅር',
+                action_confirm: 'ያረጋግጡ',
+                action_submit: 'ያስገቡ',
+                action_reset: 'አድስር',
+                action_clear: 'አጥፋ',
+                action_search: 'ፈልግ',
+                action_filter: 'አጣራ',
+                action_sort: 'አደራድር',
+                
+                // Time and Date
+                today: 'ዛሬ',
+                yesterday: 'ትላንትና',
+                tomorrow: 'ነገም',
+                this_week: 'ዛሬ ሳምንት',
+                this_month: 'ዛሬ ወር',
+                this_year: 'ዛሬ ዓመት',
+                
+                // Quantities
+                items: 'እቃዎች',
+                quantity: 'ብዛት',
+                price: 'ዋጋ',
+                total: 'ጠቅላላ',
+                subtotal: 'የንጥል ዋጋ',
+                discount: 'ቅናሽ',
+                tax: 'ታክስ',
+                shipping: 'መላክ',
+                
+                // Status
+                active: 'ንቁ',
+                inactive: 'ተሽሯል',
+                pending: 'በጥበብ ላይ',
+                completed: 'ተጠናቋል',
+                cancelled: 'ተሰርዟል',
+                failed: 'አልተሳካም',
+                
+                // Social
+                share: 'ያጋሩ',
+                like: 'ደስዎትላለሁ',
+                follow: 'ተከተሉ',
+                subscribe: 'ይመዝገቡ',
+                contact: 'ያግኙ',
+                
+                // Navigation Additional
+                home: 'ቤት',
+                back_to_top: 'ወደ ላይ ይመለሱ',
+                continue_shopping: 'ግዢውን ይቀጥሉ',
+                view_cart: 'ሳጥንን ይመልከቱ',
+                checkout: 'መርምሄ',
+                
+                // Footer
+                footer_copyright: '© 2024 InkSpire. መብቱ በሙሉ የተጠበቀ ነው።',
+                footer_privacy: 'የግላጽ ፖሊሲ',
+                footer_terms: 'የአጠቃቀም ውልደት',
+                footer_contact: 'አድራሻ',
+                footer_about: 'ስለ ኛች',
+                
+                // Language Specific
+                language: 'ቋንቋ',
+                select_language: 'ቋንቋ ይምረጡ',
+                english: 'እንግሊዘኛ',
+                amharic: 'አማርኛ',
+                
+                // Currency
+                currency_etb: 'ብር',
+                currency_usd: 'ዶላር',
+                free: 'ነጻ',
+                paid: 'ተከፈለ',
+                
+                // Rating
+                stars: 'ኮከቦች',
+                rating_excellent: 'ከፍተኛ',
+                rating_good: 'ጥሩ',
+                rating_average: 'መካከለኛ',
+                rating_poor: 'ደካማ',
+                rating_terrible: 'በጣላ',
+                
+                // Common Phrases
+                welcome_back: 'እንኳን እንደገና ደህና መጡ',
+                thank_you_shopping: 'ከኛችን ለመግዛት እናመሰግናለን',
+                enjoy_shopping: 'ግዢውን ይዝናሉ',
+                happy_shopping: 'ደስተኛ ግዢ!',
+                
+                // Error Handling
+                try_again: 'እንደገና ይሞክሩ',
+                contact_support: 'ከድጋፍ ጋር ይያግኙ',
+                page_not_found: 'ገጽ አልተገኘም',
+                server_error: 'የአገልጋይ ስህተት',
+                loading_error: 'በማጠናቀቅ ላይ ስህተት',
+                
+                // Success Actions
+                added_to_cart: 'ወደ ሳጥን ተጨምረዋል',
+                removed_from_cart: 'ከሳጥን ተወግዷል',
+                updated_successfully: 'በተሳካ ሁኔታ ተዘምኗል',
+                saved_successfully: 'በተሳካ ሁኔታ ተቀመጠ',
+                deleted_successfully: 'በተሳካ ሁኔታ ተሰርዟል',
+                
+                // Form Validation
+                required: 'ይህ መስክ ግዴታ ነው',
+                invalid_format: 'የተሳሳተ አቀራረብ',
+                too_short: 'በጣም አጭር ነው',
+                too_long: 'በጣም ረጅም ነው',
+                email_invalid: 'የተሳሳተ ኢሜይል',
+                phone_invalid: 'የተሳሳተ ስልክ ቁጥር',
+                password_weak: 'የይለፍ ቃል ደካማ ነው',
+                password_strong: 'የይለፍ ቃል ጠንካማ ነው',
+                
+                // Shopping Experience
+                browse_categories: 'ምድቦችን ያስሱ',
+                featured_products: 'የተመረጡ እቃዎች',
+                trending_products: 'ተወዳጅ እቃዎች',
+                new_arrivals: 'አዲስ የመጡ እቃዎች',
+                best_sellers: 'በጣም የሚሸጡ',
+                special_offers: 'የተለየ አማራጮች',
+                clearance_sale: 'የማጽደቅ ሽውዎች',
+                
+                // Customer Service
+                customer_support: 'የደንበኛ ድጋፍ',
+                help_center: 'የእርዳታ ማዕከል',
+                faq: 'ተደጋጋሚ ጥያቄዎች',
+                live_chat: 'ቀጥታ ውይይት',
+                call_us: 'ይውሩልን',
+                email_us: 'ኢሜይል ይላኩልን',
+                
+                // Payment Methods
+                payment_methods: 'የክፍያ ዘዴዎች',
+                cash_on_delivery: 'በክፍያ ላይ ገንዘብ',
+                bank_transfer: 'የባንክ ማስተላላፊያ',
+                mobile_payment: 'የሞባይል ክፍያ',
+                credit_card: 'ክሬዲት ካርድ',
+                debit_card: 'ዲቢት ካርድ',
+                
+                // Shipping
+                shipping_address: 'የመላክ አድራሻ',
+                billing_address: 'የክፍያ አድራሻ',
+                free_shipping: 'ነጻ መላክ',
+                standard_shipping: 'መደበኛ መላክ',
+                express_shipping: 'ፈጣን መላክ',
+                international_shipping: 'ዓለም አቀፍ መላክ',
+                
+                // Order Status
+                order_status: 'የትዥዛዝ ሁኔታ',
+                order_history: 'የትዥዛዝ ታሪክ',
+                order_details: 'የትዥዛዝ ዝርዝሮች',
+                order_tracking: 'የትዥዛዝ መከታታት',
+                order_invoice: 'የትዥዛዝ ኢንቮይስ',
+                
+                // Account
+                my_account: 'መለዬ',
+                profile_settings: 'የመገለጫ ቅንብጦች',
+                change_password: 'የይለፍ ቃል ቀይር',
+                update_profile: 'መገለጫ ዘምን',
+                account_details: 'የመለያ ዝርዝሮች',
+                logout: 'ይውጡ',
+                
+                // Search and Filter
+                search_results: 'የፍለጋ ውጤቶች',
+                no_results_found: 'ምንም ውጤቶች አልተገኙም',
+                refine_search: 'ፍለጋውን ያሻሽሉ',
+                clear_filters: 'ማጣሪያዎችን አጥፋ',
+                apply_filters: 'ማጣሪያዎችን ይተግቡ',
+                
+                // Categories
+                categories: 'ምድቦች',
+                all_categories: 'ሁሉም ምድቦች',
+                stationery: 'መለያ እቃዎች',
+                office_supplies: 'የቢሮ እቃዎች',
+                school_supplies: 'የትምህርት እቃዎች',
+                art_crafts: 'ጥበብ እና ገጠማ',
+                writing_instruments: 'የጽሑፍ እቃዎች',
+                paper_products: 'የወረታ እቃዎች',
+                
+                // Product Attributes
+                color: 'ቀለም',
+                size: 'መጠን',
+                material: 'ነገር',
+                weight: 'ክብደት',
+                dimensions: 'ስፋቶች',
+                brand: 'ምርት',
+                model: 'ዴል',
+                sku: 'SKU',
+                isbn: 'ISBN',
+                
+                // Reviews
+                write_review: 'ግምገማ ይጽፉ',
+                customer_reviews: 'የደንበኞች ግምገማዎች',
+                verified_purchase: 'የተረጋገጠ ግዢ',
+                review_rating: 'የግምገማ ደረጃ',
+                review_comment: 'የግምገማ አስተዋፍቶ',
+                review_helpful: 'ጠቃሚ ነው',
+                review_not_helpful: 'ጠቃሚ አይደለም',
+                
+                // Notifications
+                notification_success: 'ስኬት',
+                notification_error: 'ስህተት',
+                notification_warning: 'ማንበቢያ',
+                notification_info: 'መረጃ',
+                notification_update: 'ዘምን',
+                notification_new: 'አዲስ',
+                notification_read: 'ተነበበ',
+                notification_unread: 'አልተነበበም',
+                
+                // Social Media
+                facebook: 'ፌስቡክ',
+                twitter: 'ዊተር',
+                instagram: 'ኢንስታግራም',
+                linkedin: 'ሊንክድኢን',
+                youtube: 'ዩቱብ',
+                whatsapp: 'ዋትስአፕ',
+                telegram: 'ቴሌግራም',
+                
+                // Miscellaneous
+                loading: 'በማጠናቀቅ ላይ...',
+                please_wait: 'እባክዎ ይጠብቁ',
+                processing: 'በማቀናቅ ላይ',
+                completed: 'ተጠናቋል',
+                failed: 'አልተሳካም',
+                retry: 'እንደገና ይሞክሩ',
+                close: 'ዝጋ',
+                cancel: 'ይቅር',
+                confirm: 'ያረጋግጡ',
+                yes: 'አዎ',
+                no: 'ይልም',
+                ok: 'እሺ',
+                done: 'ተጠናቋል',
+                continue: 'ይቀገሉ',
+                finish: 'ያግለግጉ',
+                start: 'ይጀምሩ',
+                stop: 'ይቆሙ',
+                pause: 'ይለገጡ',
+                play: 'ይጫወቱ',
+                download: 'ያውርዱ',
+                upload: 'ያስቀምጡ',
+                share: 'ያጋሩ',
+                copy: 'ይቅጠሩ',
+                paste: 'ይለግጡ',
+                cut: 'ይቁረጡ',
+                undo: 'ይተመለሱ',
+                redo: 'እንደገና ያድርጉ',
+                save: 'አስቀምጥ',
+                save_as: 'እንደዚህ አስቀምጥ',
+                open: 'ክፈት',
+                close: 'ዝጋ',
+                exit: 'ውጣ',
+                quit: 'ተወ',
+                help: 'እርዳታ',
+                about: 'ስለ',
+                settings: 'ቅንብጦች',
+                preferences: 'ምርጫዎች',
+                options: 'አማራጮች',
+                tools: 'እቃዎች',
+                menu: 'ምልክት',
+                home: 'ቤት',
+                back: 'ወደ ኋላ',
+                forward: 'ወደ ፊት',
+                next: 'ወደ ፊት',
+                previous: 'ያለፈው',
+                first: 'የመጀመሪያ',
+                last: 'የመጨረሻ',
+                page: 'ገጽ',
+                pages: 'ገጾች',
+                total: 'ጠቅላላ',
+                subtotal: 'የንጥል ዋጋ',
+                tax: 'ታክስ',
+                discount: 'ቅናሽ',
+                shipping: 'መላክ',
+                handling: 'ማስተኛ',
+                fees: 'ክፍዎች',
+                total_amount: 'ጠቅላላ መጠን',
+                amount_due: 'የሚከፈል መጠን',
+                amount_paid: 'የተከፈለ መጠን',
+                balance_due: 'የቀረጠ መጠን',
+                minimum_order: 'አነስተኛ ትዥዛዝ',
+                maximum_order: 'ከፍተኛ ትዥዛዝ',
+                order_limit: 'የትዥዛዝ ገደብ',
+                quantity_limit: 'የብዛት ገደብ',
+                weight_limit: 'የክብደት ገደብ',
+                size_limit: 'የመጠን ገደብ',
+                time_limit: 'የጊዜ ገደብ',
+                date_limit: 'የቀን ገደብ',
+                age_limit: 'የእድር ገደብ',
+                price_limit: 'የዋጋ ገደብ',
+                stock_limit: 'የስቶክ ገደብ',
+                character_limit: 'የፊደል ገደብ',
+                word_limit: 'የቃላት ገደብ',
+                line_limit: 'የመስመር ገደብ',
+                file_limit: 'የፋይል ገደብ',
+                memory_limit: 'የማህደረት ገደብ',
+                storage_limit: 'የማኅረት ገደብ',
+                bandwidth_limit: 'የባንድውድት ገደብ',
+                connection_limit: 'የግንኙነት ገደብ',
+                user_limit: 'የተጠቃሚ ገደብ',
+                session_limit: 'የክፍፈት ገደብ',
+                request_limit: 'የጥያቄ ገደብ',
+                response_limit: 'የምላክ ገደብ',
+                timeout_limit: 'የጊዜ ገደብ'
             }
         };
     }
