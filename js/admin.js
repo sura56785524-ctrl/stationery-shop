@@ -236,8 +236,8 @@ class AdminPage {
                                 </td>
                                 <td><span class="badge bg-light text-dark">${p.category}</span></td>
                                 <td>
-                                    <div class="fw-bold text-primary">$${p.price.toFixed(2)}</div>
-                                    ${p.originalPrice > p.price ? `<div class="text-muted small text-decoration-line-through">$${p.originalPrice.toFixed(2)}</div>` : ''}
+                                    <div class="fw-bold text-primary">ETB ${p.price.toFixed(2)}</div>
+                                    ${p.originalPrice > p.price ? `<div class="text-muted small text-decoration-line-through">ETB ${p.originalPrice.toFixed(2)}</div>` : ''}
                                 </td>
                                 <td>
                                     <span class="badge ${p.stock <= 10 ? 'bg-danger' : p.stock <= 50 ? 'bg-warning' : 'bg-success'}">${p.stock}</span>
