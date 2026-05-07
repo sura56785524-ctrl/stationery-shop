@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - InkSpire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100" style="background:linear-gradient(135deg,#ECFDF5,var(--primary-50));">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-pen-fill"></i>InkSpire</a>
+            <a href="index.html" class="btn btn-outline-primary btn-sm"><i class="bi bi-house me-1"></i>Home</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1 d-flex align-items-center py-5">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <div class="auth-icon" style="background:#D1FAE5;color:var(--success);">
+                            <i class="bi bi-person-plus"></i>
+                        </div>
+                        <h2 class="auth-title">Create Account</h2>
+                        <p class="auth-subtitle">Join InkSpire and start shopping today</p>
+                    </div>
+
+                    <form id="register-form" novalidate>
+                        <div class="mb-3">
+                            <label for="reg-name" class="form-label">Full Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-person text-muted"></i></span>
+                                <input type="text" class="form-control" id="reg-name" placeholder="John Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="reg-email" class="form-label">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-envelope text-muted"></i></span>
+                                <input type="email" class="form-control" id="reg-email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="reg-password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-lock text-muted"></i></span>
+                                <input type="password" class="form-control" id="reg-password" 
+                                       placeholder="Min 6 characters" required minlength="6">
+                                <span class="input-group-text password-toggle" id="toggle-reg-password">
+                                    <i class="bi bi-eye"></i>
+                                </span>
+                            </div>
+                            <div class="mt-2" id="password-strength"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="reg-confirm-password" class="form-label">Confirm Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-lock-fill text-muted"></i></span>
+                                <input type="password" class="form-control" id="reg-confirm-password" 
+                                       placeholder="Re-enter password" required>
+                            </div>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="agree-terms" required>
+                            <label class="form-check-label small" for="agree-terms">
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 btn-lg" id="register-btn">
+                            <i class="bi bi-person-check"></i>
+                            <span>Create Account</span>
+                        </button>
+                    </form>
+
+                    <div class="auth-divider">or</div>
+
+                    <p class="text-center mb-0">
+                        Already have an account? <a href="login.html" class="fw-bold">Sign in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        class RegisterPage {
+            constructor() {
+                this.init();
+            }
+
+            async init() {
+                await authService.onAuthReady();
+                if (authService.isLoggedIn()) {
+                    window.location.href = 'index.html';
+                    return;
+                }
+                this.bindEvents();
+            }
+
+            bindEvents() {
+                document.getElementById('register-form').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    await this.handleRegister();
+                });
+
+                document.getElementById('toggle-reg-password').addEventListener('click', () => {
+                    const input = document.getElementById('reg-password');
+                    const icon = document.querySelector('#toggle-reg-password i');
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        icon.className = 'bi bi-eye-slash';
+                    } else {
+                        input.type = 'password';
+                        icon.className = 'bi bi-eye';
+                    }
+                });
+
+                document.getElementById('reg-password').addEventListener('input', (e) => {
+                    this.checkPasswordStrength(e.target.value);
+                });
+            }
+
+            checkPasswordStrength(password) {
+                const el = document.getElementById('password-strength');
+                if (!password) { el.innerHTML = ''; return; }
+                let strength = 0;
+                if (password.length >= 6) strength++;
+                if (password.length >= 10) strength++;
+                if (/[A-Z]/.test(password)) strength++;
+                if (/[0-9]/.test(password)) strength++;
+                if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+                const levels = [
+                    { text: 'Very Weak', color: '#EF4444', width: '20%' },
+                    { text: 'Weak', color: '#F59E0B', width: '40%' },
+                    { text: 'Fair', color: '#F59E0B', width: '60%' },
+                    { text: 'Strong', color: '#10B981', width: '80%' },
+                    { text: 'Very Strong', color: '#059669', width: '100%' }
+                ];
+
+                const level = levels[Math.min(strength, 4)];
+                el.innerHTML = `
+                    <div class="d-flex align-items-center gap-2">
+                        <div style="flex:1;height:4px;border-radius:2px;background:#E5E7EB;">
+                            <div style="height:100%;width:${level.width};background:${level.color};border-radius:2px;transition:all 0.3s;"></div>
+                        </div>
+                        <span style="font-size:0.7rem;color:${level.color};font-weight:600;">${level.text}</span>
+                    </div>`;
+            }
+
+            async handleRegister() {
+                const name = document.getElementById('reg-name').value.trim();
+                const email = document.getElementById('reg-email').value.trim();
+                const password = document.getElementById('reg-password').value;
+                const confirmPassword = document.getElementById('reg-confirm-password').value;
+                const agreeTerms = document.getElementById('agree-terms').checked;
+
+                if (!name || name.length < 2) {
+                    toast.warning('Please enter your full name (at least 2 characters).');
+                    return;
+                }
+                if (!email) {
+                    toast.warning('Please enter a valid email address.');
+                    return;
+                }
+                if (password.length < 6) {
+                    toast.warning('Password must be at least 6 characters.');
+                    return;
+                }
+                if (password !== confirmPassword) {
+                    toast.error('Passwords do not match.');
+                    return;
+                }
+                if (!agreeTerms) {
+                    toast.warning('Please agree to the Terms of Service.');
+                    return;
+                }
+
+                const btn = document.getElementById('register-btn');
+                btn.disabled = true;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>Creating account...';
+
+                const result = await authService.register(name, email, password);
+                if (result.success) {
+                    setTimeout(() => { window.location.href = 'index.html'; }, 1000);
+                } else {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="bi bi-person-check"></i><span>Create Account</span>';
+                }
+            }
+        }
+
+        new RegisterPage();
+    </script>
+</body>
+</html>

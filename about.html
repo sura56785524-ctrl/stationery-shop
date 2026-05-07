@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - InkSpire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-pen-fill"></i>InkSpire</a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="cart.html" class="nav-link nav-cart-btn position-relative">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="cart-count-badge" id="cart-count-badge" style="display:none;">0</span>
+                    </a>
+                    <div id="nav-auth-section"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- About Hero -->
+        <div class="about-hero">
+            <div class="container position-relative" style="z-index:1;">
+                <h1>About InkSpire</h1>
+                <p>Fueling creativity and productivity through premium stationery since 2026.</p>
+            </div>
+        </div>
+
+        <!-- Mission -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=600" 
+                             alt="Our Story" class="img-fluid rounded-custom shadow-lg-custom">
+                    </div>
+                    <div class="col-lg-6 animate-on-scroll">
+                        <h2 class="section-title">Our Mission</h2>
+                        <p class="text-muted mt-3" style="line-height:1.9;">
+                            At InkSpire, we believe that the right stationery can transform the way you 
+                            think, create, and express yourself. Our mission is to provide high-quality, 
+                            beautifully designed stationery and art supplies that inspire creativity in 
+                            everyone — from students and professionals to artists and journalers.
+                        </p>
+                        <p class="text-muted" style="line-height:1.9;">
+                            We carefully curate products from the world's most trusted brands and emerging 
+                            artisans, ensuring every item in our shop meets our standards of quality, 
+                            sustainability, and design excellence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll">
+                    <h2 class="section-title text-center">Our Values</h2>
+                    <p class="section-subtitle mx-auto mt-3">The principles that guide everything we do.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="about-value-card">
+                            <div class="about-value-icon bg-primary-soft text-primary">
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <h5>Quality First</h5>
+                            <p class="text-muted small">Every product is tested and curated to ensure premium quality.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="about-value-card">
+                            <div class="about-value-icon bg-success-soft text-success">
+                                <i class="bi bi-tree"></i>
+                            </div>
+                            <h5>Sustainability</h5>
+                            <p class="text-muted small">We prioritize eco-friendly products and packaging.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="about-value-card">
+                            <div class="about-value-icon bg-warning-soft" style="color:var(--secondary);">
+                                <i class="bi bi-lightbulb"></i>
+                            </div>
+                            <h5>Innovation</h5>
+                            <p class="text-muted small">Constantly discovering new and creative products.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="about-value-card">
+                            <div class="about-value-icon bg-danger-soft text-danger">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                            <h5>Community</h5>
+                            <p class="text-muted small">Building a community of passionate stationery lovers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5 animate-on-scroll">Our Journey</h2>
+                <div class="mx-auto" style="max-width:700px;">
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot">2020</div>
+                        <div>
+                            <h5 class="fw-bold">Founded</h5>
+                            <p class="text-muted">InkSpire started as a small online shop with a curated selection of 50 products.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot">2021</div>
+                        <div>
+                            <h5 class="fw-bold">1,000 Customers</h5>
+                            <p class="text-muted">Reached our first milestone and expanded to over 200 products.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot">2022</div>
+                        <div>
+                            <h5 class="fw-bold">International Shipping</h5>
+                            <p class="text-muted">Began shipping to over 30 countries worldwide.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot">2024</div>
+                        <div>
+                            <h5 class="fw-bold">10,000+ Happy Customers</h5>
+                            <p class="text-muted">Proudly serving a growing global community of stationery enthusiasts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5 animate-on-scroll">
+                    <h2 class="section-title text-center">Meet Our Team</h2>
+                    <p class="section-subtitle mx-auto mt-3">The passionate people behind InkSpire.</p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="team-card">
+                            <div class="team-avatar bg-primary-soft d-flex align-items-center justify-content-center mx-auto" style="width:100px;height:100px;border-radius:50%;font-size:2rem;color:var(--primary);">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <h6 class="mt-3 mb-1 fw-bold">SURAFEL ALEMU</h6>
+                            <p class="text-muted small mb-2">Founder & CEO</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/inkspire_fullpack_stationery/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="team-card">
+                            <div class="team-avatar bg-success-soft d-flex align-items-center justify-content-center mx-auto" style="width:100px;height:100px;border-radius:50%;font-size:2rem;color:var(--success);">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <h6 class="mt-3 mb-1 fw-bold">AJIBEW ABEBE</h6>
+                            <p class="text-muted small mb-2">Creative Director</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/inkspire_fullpack_stationery/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="team-card">
+                            <div class="team-avatar bg-warning-soft d-flex align-items-center justify-content-center mx-auto" style="width:100px;height:100px;border-radius:50%;font-size:2rem;color:var(--secondary);">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <h6 class="mt-3 mb-1 fw-bold">GENZEB DAGIM</h6>
+                            <p class="text-muted small mb-2">Head of Operations</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/inkspire_fullpack_stationery/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-4 animate-on-scroll">
+                    <h2 class="section-title text-center">Contact & Location</h2>
+                    <p class="section-subtitle mx-auto mt-3">Visit us or reach us anytime.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6 animate-on-scroll">
+                        <div class="dashboard-card h-100">
+                            <h5 class="fw-bold mb-3"><i class="bi bi-geo-alt me-2"></i>Our Location</h5>
+                            <p class="text-muted mb-2"><strong>InkSpire Stationery</strong></p>
+                            <p class="text-muted mb-3">Piassa, Addis Ababa, Ethiopia</p>
+                            <p class="small text-muted mb-1"><i class="bi bi-telephone me-2"></i>+251956785524</p>
+                            <p class="small text-muted mb-0"><i class="bi bi-envelope me-2"></i>sura56785524@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 animate-on-scroll">
+                        <div class="dashboard-card h-100">
+                            <h5 class="fw-bold mb-3"><i class="bi bi-map me-2"></i>Map</h5>
+                            <iframe
+                                title="InkSpire Location Map"
+                                src="https://www.google.com/maps?q=Addis%20Ababa%20Piassa&output=embed"
+                                width="100%"
+                                height="260"
+                                style="border:0;border-radius:12px;"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom text-center">
+                <p>&copy; 2026 InkSpire. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <button id="back-to-top"><i class="bi bi-chevron-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
