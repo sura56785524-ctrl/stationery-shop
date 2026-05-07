@@ -2875,7 +2875,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Enhanced Dark Mode Styles */
-[data-theme="dark"] body {
+body {
     font-family: var(--font-primary);
     background-color: var(--body-bg);
     background-image: url("../image/colorful-stationery-store-stockcake.webp");
@@ -2883,6 +2883,7 @@ h1, h2, h3, h4, h5, h6 {
     background-attachment: fixed;
     background-position: center;
     position: relative;
+    min-height: 100vh;
 }
 
 body::before {
@@ -2894,6 +2895,17 @@ body::before {
     bottom: 0;
     background: linear-gradient(135deg, rgba(248, 250, 252, 0.92) 0%, rgba(241, 245, 249, 0.88) 100%);
     z-index: -1;
+    pointer-events: none;
+}
+
+[data-theme="dark"] body {
+    background-color: #0f172a;
+    background-image: url("../image/colorful-stationery-store-stockcake.webp");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    min-height: 100vh;
 }
 
 [data-theme="dark"] body::before {
@@ -2903,8 +2915,79 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.97) 0%, rgba(30, 41, 59, 0.95) 100%);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.8) 100%);
     z-index: -1;
+    pointer-events: none;
+}
+
+/* Enhanced Dark Mode Colors */
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
+    --secondary-color: #64748b;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #0ea5e9;
+    --light-color: #f8fafc;
+    --dark-color: #1f2937;
+    --body-bg: #0f172a;
+    --card-bg: #1e293b;
+    --navbar-bg: #1e293b;
+    --navbar-scrolled-bg: #1f2937;
+    --text-color: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: #374151;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-bg: rgba(59, 130, 246, 0.1);
+}
+
+/* Enhanced Dark Mode Components */
+[data-theme="dark"] .navbar {
+    background-color: var(--navbar-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .navbar-brand {
+    color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+[data-theme="dark"] .hero-section {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.85) 100%);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+}
+
+[data-theme="dark"] .hero-content {
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .navbar {
