@@ -456,7 +456,7 @@ class AdminPage {
                                         <div class="text-muted small">${order.userEmail || ''}</div>
                                     </td>
                                     <td>${itemCount} item${itemCount !== 1 ? 's' : ''}</td>
-                                    <td class="fw-bold text-primary">$${(order.totalPrice||0).toFixed(2)}</td>
+                                    <td class="fw-bold text-primary">ETB ${(order.totalPrice||0).toFixed(2)}</td>
                                     <td><span class="badge bg-light text-dark">${this.formatPaymentMethod(order.paymentMethod)}</span></td>
                                     <td><span class="order-status ${order.status}">${order.status}</span></td>
                                     <td class="text-muted small">${date}</td>

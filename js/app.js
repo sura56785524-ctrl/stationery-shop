@@ -359,7 +359,7 @@ class SiteAssistant {
         }
 
         if (question.includes('shipping') || question.includes('delivery')) {
-            return 'Shipping is free for orders above $50. Otherwise shipping is $5.99. You can complete delivery details in Checkout.';
+            return 'Shipping is free for orders above ETB 2750. Otherwise shipping is ETB 330. You can complete delivery details in Checkout.';
         }
 
         if (question.includes('return') || question.includes('refund')) {
