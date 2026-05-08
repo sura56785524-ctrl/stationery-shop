@@ -120,7 +120,7 @@ class AdminPage {
                                 <div class="stat-change text-success"><i class="bi bi-graph-up-arrow"></i> From ${this.orders.length} orders</div>
                             </div>
                             <div class="stat-icon bg-success-soft text-success">
-                                <i class="bi bi-currency-dollar"></i>
+                                <i class="bi bi-currency-exchange"></i>
                             </div>
                         </div>
                     </div>
