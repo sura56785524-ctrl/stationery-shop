@@ -18,7 +18,7 @@ function buildProducts() {
         category,
         imageURL: `https://picsum.photos/seed/${category}-${i}/600/600`,
         stock: 20 + i * 3,
-        brand: "InkSpire",
+        brand: "SmartStationery",
         rating: Number((3.8 + (i % 3) * 0.4).toFixed(1)),
         reviewCount: 20 + i * 7,
         featured: i <= 4,

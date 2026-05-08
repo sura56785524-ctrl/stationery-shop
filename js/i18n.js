@@ -116,7 +116,7 @@ class I18n {
                 dont_have_account: 'Don\'t have an account?',
                 
                 // General Messages
-                welcome: 'Welcome to InkSpire',
+                welcome: 'Welcome to SmartStationery',
                 thank_you: 'Thank You',
                 success_message: 'Operation completed successfully!',
                 error_message: 'An error occurred. Please try again.',
@@ -233,7 +233,7 @@ class I18n {
                 dont_have_account: 'መለያ የለዎትም?',
                 
                 // General Messages
-                welcome: 'ወደ InkSpire እንኳን ደህና መጡ',
+                welcome: 'ወደ SmartStationery እንኳን ደህና መጡ',
                 thank_you: 'እናመሰግናለን',
                 success_message: 'ተግባር በተሳካ ሁኔታ ተጠናቋል!',
                 error_message: 'ስህተት ተፈጥሯል። እባክዎ እንደገና ይሞክሩ።',
@@ -373,7 +373,7 @@ class I18n {
                 checkout: 'መርምሄ',
                 
                 // Footer
-                footer_copyright: '© 2024 InkSpire. መብቱ በሙሉ የተጠበቀ ነው።',
+                footer_copyright: '© 2024 SmartStationery. All rights reserved.',
                 footer_privacy: 'የግላጽ ፖሊሲ',
                 footer_terms: 'የአጠቃቀም ውልደት',
                 footer_contact: 'አድራሻ',

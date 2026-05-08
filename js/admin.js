@@ -116,7 +116,7 @@ class AdminPage {
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
                                 <div class="stat-label">Total Revenue</div>
-                                <div class="stat-value">$${totalRevenue.toFixed(2)}</div>
+                                <div class="stat-value">ETB ${totalRevenue.toFixed(2)}</div>
                                 <div class="stat-change text-success"><i class="bi bi-graph-up-arrow"></i> From ${this.orders.length} orders</div>
                             </div>
                             <div class="stat-icon bg-success-soft text-success">
