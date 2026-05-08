@@ -68,7 +68,7 @@ class DashboardPage {
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
                                 <div class="stat-label mb-1">Total Spent</div>
-                                <div class="stat-value">$${totalSpent.toFixed(2)}</div>
+                                <div class="stat-value">ETB ${totalSpent.toFixed(2)}</div>
                             </div>
                             <div class="dashboard-stat-icon bg-success-soft text-success">
                                 <i class="bi bi-currency-dollar"></i>
@@ -116,7 +116,7 @@ class DashboardPage {
                         </div>
                         <div class="d-flex justify-content-between mb-3">
                             <span class="text-muted small">Current Total</span>
-                            <span class="fw-semibold">$${cartService.getTotal().toFixed(2)}</span>
+                            <span class="fw-semibold">ETB ${cartService.getTotal().toFixed(2)}</span>
                         </div>
                         <a href="cart.html" class="btn btn-outline-primary w-100 btn-sm">
                             <i class="bi bi-arrow-right-circle me-1"></i>Go to Cart
@@ -205,7 +205,7 @@ class DashboardPage {
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="text-muted small">${itemCount} item${itemCount !== 1 ? 's' : ''}</div>
-                <div class="fw-bold text-primary">$${(order.totalPrice || 0).toFixed(2)}</div>
+                <div class="fw-bold text-primary">ETB ${(order.totalPrice || 0).toFixed(2)}</div>
             </div>
             ${order.items ? `
             <div class="mt-2 d-flex gap-1 flex-wrap">
