@@ -177,6 +177,76 @@ class I18n {
                 products_no_results_desc: 'ፈልጎችን ይም ማጣሪያዎችን ይቀይሩ።',
                 products_reset_filters: 'ማጣሪያዎችን አድስር',
                 products_featured: 'የተመረጡ',
+                products_trending: 'የፈጎችም የሚውር',
+                products_sale: 'ሽውም',
+                products_in_stock: 'በርገት',
+                products_low_stock: 'ብቅ {count} ብቅ!',
+                products_out_of_stock: 'የተልት',
+                products_add_to_cart: 'ወደ ሳጥ መውጣት',
+                products_quick_view: 'ፈለማት መመልጣት',
+                products_add_wishlist: 'ወደ ሳጥ መውጣት',
+                products_remove_wishlist: 'ከሳጥ ወደ ሳጥ መውጣት',
+                
+                // Cart
+                cart_title: 'የግሽሳጥ ዝልጥ',
+                cart_empty_title: 'የግሽሳጥዎ ባልም',
+                cart_empty_desc: 'እንንም አለማይንም እንንም የምልጥት አልማይንም የለዝልጥት።',
+                cart_browse_products: 'እቃዎችንይምምንም ይፈማ',
+                cart_items_in_cart: '{count} እቃዎች',
+                cart_clear_all: 'ሁሉም አስው',
+                cart_order_summary: 'የትወማም ማክባ',
+                cart_free_shipping_applied: 'ነፊር አስይ ተርች!',
+                cart_add_more_for_free_shipping: 'ለለማት <strong>{amount}</strong> አስይ ተርች ነፊር አስይ ተርች',
+                cart_subtotal: 'የግሽሳጥ',
+                cart_tax: 'ታግስ (8%)',
+                cart_shipping: 'አስይ',
+                cart_total: 'ጠቅር',
+                cart_proceed_checkout: 'ወደ ሳጥ መፍጣት',
+                cart_continue_shopping: 'እቃዎችንይምምንም ይፈማ',
+                cart_removed: 'ከሳጥ ወደ ሳጥ መውጣት',
+                cart_added: 'ወደ ሳጥ መውጣት! 🛒',
+                
+                // Checkout
+                checkout_title: 'መፍጣት',
+                checkout_cart: 'የግሽሳጥ',
+                checkout_shipping_payment: 'አስይ እና ክፍያ',
+                checkout_confirmation: 'ማክባት',
+                checkout_shipping_address: 'አስይ እና',
+                checkout_payment_method: 'ክፍያ እና',
+                checkout_place_order: 'የትወማም ማክባ',
+                checkout_cash_on_delivery: 'ከደረን ተክች',
+                checkout_cash_on_delivery_desc: 'የትወማም ማክባ ተክች',
+                checkout_cbe_transfer: 'ኢቢኤ ትራርር',
+                checkout_telebirr: 'ቴሌቢብር',
+                
+                // Auth
+                login_title: 'መግቢያ',
+                register_title: 'ምዝገባ',
+                email: 'ኢሜልል',
+                password: 'የሚላግ',
+                confirm_password: 'የሚላግ ማማም',
+                full_name: 'ሙስ ስም',
+                phone_number: 'ስልር ቁጥር',
+                remember_me: 'አስውርኝ',
+                forgot_password: 'የሚላግ ረሰው?',
+                already_have_account: 'አካልን የምልጥ ተርች?',
+                dont_have_account: 'አካልን የምልጥ ተርች?',
+                
+                // General Messages
+                welcome: 'እንንም ደማሳተ SmartStationery',
+                thank_you: 'እንንም ደማሳተ',
+                success_message: 'ስርኣት ተርች!',
+                error_message: 'ስህተት ተርች። እንንም ይፈማ',
+                required_field: 'ይሚ ይምልጥ አስይ',
+                invalid_email: 'እሉክ ኢሜልል ያስው',
+                password_mismatch: 'የሚላግም አይምል',
+                
+                // Admin Panel
+                admin_dashboard: 'ዳሽቦርድ',
+                admin_products: 'እቃዎች',
+                admin_orders: 'የትወማም',
+                admin_users: 'ተርተማ',
+                admin_view_store: 'እቃዎችንይም'
                 products_trending: 'ተወዳጅ',
                 products_sale: 'ቅናሽ',
                 products_in_stock: 'በስቶክ ውስጥ',
@@ -637,8 +707,18 @@ class I18n {
     setLanguage(lang) {
         if (this.translations[lang]) {
             this.currentLang = lang;
-            localStorage.setItem('inkspire_language', lang);
+            localStorage.setItem('smartstationery_language', lang);
             this.updatePage();
+            this.updateLanguageSelector();
+            
+            // Update HTML dir attribute for RTL languages
+            if (lang === 'am') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'am');
+            } else {
+                document.documentElement.removeAttribute('dir');
+                document.documentElement.setAttribute('lang', 'en');
+            }
         }
     }
 

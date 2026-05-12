@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - SmartStationery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-pen-fill"></i>SmartStationery</a>
+            <div class="d-flex align-items-center gap-3">
+                <a href="cart.html" class="nav-link nav-cart-btn position-relative">
+                    <i class="bi bi-cart3 fs-5"></i>
+                    <span class="cart-count-badge" id="cart-count-badge" style="display:none;">0</span>
+                </a>
+                <a href="wishlist.html" class="nav-link position-relative">
+                    <i class="bi bi-heart fs-5"></i>
+                    <span class="wishlist-count-badge" id="wishlist-count-badge" style="display:none;">0</span>
+                </a>
+                <div id="nav-auth-section"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>My Wishlist</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">Wishlist</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="container py-4">
+            <div class="row g-4" id="wishlist-content">
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border spinner-border-custom" role="status"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <i class="bi bi-pen-fill"></i>
+                        SmartStationery
+                    </div>
+                    <p class="footer-description">
+                        Your one-stop shop for premium stationery, art supplies, and office essentials. 
+                        Inspiring creativity since 2026.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/smartstationery_ethiopia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="dashboard.html">My Account</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=notebooks">Notebooks</a></li>
+                        <li><a href="products.html?category=pens">Pens</a></li>
+                        <li><a href="products.html?category=pencils">Pencils</a></li>
+                        <li><a href="products.html?category=art-supplies">Art Supplies</a></li>
+                        <li><a href="products.html?category=paper">Paper</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6>Contact Us</h6>
+                    <ul class="footer-links footer-contact">
+                        <li>
+                            <i class="bi bi-geo-alt"></i>
+                            <span>123 Stationery Lane, Creative City, CC 10001</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i>
+                            <span>+251956785524</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope"></i>
+                            <span>sura56785524@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-clock"></i>
+                            <span>Mon - Fri: 9AM - 6PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <p>&copy; 2026 SmartStationery. All rights reserved.</p>
+                <div class="payment-icons">
+                    <i class="bi bi-credit-card-2-front"></i>
+                    <i class="bi bi-paypal"></i>
+                    <i class="bi bi-stripe"></i>
+                    <i class="bi bi-wallet2"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <button id="back-to-top"><i class="bi bi-chevron-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/wishlist.js"></script>
+</body>
+</html>
