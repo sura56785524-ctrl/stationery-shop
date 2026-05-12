@@ -241,12 +241,92 @@ class I18n {
                 invalid_email: 'እሉክ ኢሜልል ያስው',
                 password_mismatch: 'የሚላግም አይምል',
                 
+                // Page Content
+                homepage_title: 'የማርተማ ገጽ',
+                homepage_welcome: 'እንንም ደማሳተ SmartStationery',
+                homepage_subtitle: 'የግልግ እቃዎች፣ የጥበብ እቃዎች፣ እና የመምርት እቃዎች',
+                featured_products: 'የተመረጡ እቃዎች',
+                trending_products: 'የፈጎችም የሚውር',
+                about_us: 'ስለ ኛች',
+                about_description: 'የኛች ታሪክ',
+                contact_us: 'አግኙን',
+                customer_service: '��ደንበኛ አገልግግስ',
+                
+                // Product Details
+                product_details: 'የእቃው ዝርዝር',
+                product_description: 'የእቃው መግለጫ',
+                product_price: 'ዋጋ',
+                product_original_price: '��ጋዋ',
+                product_discount: 'ቅናሽ',
+                product_category: 'ምድብ',
+                product_brand: 'ምርት',
+                product_rating: 'ደረጃ',
+                product_reviews: 'ግምልነቶች',
+                in_stock: 'በስቶክ ውስጥ',
+                out_of_stock: 'ከስቶክ ውጪ',
+                low_stock: 'ብቅ {count} ይቀራል!',
+                
+                // Hero Section
+                hero_title: 'የግልግ እቃዎች',
+                hero_subtitle: 'ከፍተማ እቃዎች ወደ የጥበብ እቃዎች',
+                hero_description: 'የግልግ እቃዎች፣ የጥበብ እቃዎች፣ እና የመምርት እቃዎች',
+                shop_now: 'አሁን ይግዙ',
+                view_products: 'እቃዎችን ይመለኩ',
+                
+                // Newsletter
+                newsletter_title: 'በዱኛ ይታዉ',
+                newsletter_subtitle: 'ለልዩ የሚሆኑ ሽውማ፣ አዲስ እቃዎች፣ እና የግልግ ምርት',
+                newsletter_placeholder: 'የኢሜል አድራሽን ያስገቡ',
+                subscribe: 'ይታዉ',
+                
+                // Testimonials
+                testimonials: 'የደንበኛዎች ምልክት',
+                customer_reviews: 'የደንበኛዎች ግምልነቶች',
+                our_customers_say: 'ደንበኛዎች የሚሉዉ',
+                
+                // Footer
+                quick_links: 'ፈጣን አገናዎች',
+                categories: 'ምድቦች',
+                contact_info: 'የአግኙን መረጃ',
+                follow_us: 'ይከተሉን',
+                
                 // Admin Panel
                 admin_dashboard: 'ዳሽቦርድ',
                 admin_products: 'እቃዎች',
                 admin_orders: 'የትወማም',
                 admin_users: 'ተርተማ',
-                admin_view_store: 'እቃዎችንይም'
+                admin_view_store: 'እቃዎችንይም',
+                admin_add_product: 'እቃው ጨምር',
+                admin_edit_product: 'እቃውን አርም',
+                admin_delete_product: 'እቃውን አጥፋ',
+                admin_product_name: 'የእቃው ስም',
+                admin_product_price: 'የእቃው ዋጋ',
+                admin_product_description: 'የእቃው መግለጫ',
+                admin_product_category: 'የእቃው ምድብ',
+                admin_save_changes: 'ለውጤታዎች አስቀምጥ',
+                admin_cancel: 'ይቅር',
+                
+                // Shopping Process
+                checkout: 'መፍጣት',
+                shipping_address: 'የአስይ አድራሻ',
+                payment_method: 'የክፍያ አይነታዊ',
+                place_order: 'የትወማም ማክባ',
+                order_summary: 'የትወማም ማክባ',
+                subtotal: 'የግሽሳጥ',
+                total: '��ቅር',
+                free_shipping: 'ነፊር አስይ',
+                shipping_cost: 'የአስይ ዋጋ',
+                
+                // Messages
+                item_added_to_cart: 'እቃው ወደ ሳጥ ተጨምር! 🛒',
+                item_removed_from_cart: 'እቃው ከሳጥ ተወግድ',
+                item_added_to_wishlist: 'እቃው ወደ ፈለጌ ተጨምር! ❤️',
+                item_removed_from_wishlist: 'እቃው ከፈለጌ ተወግድ',
+                login_required: 'መግቢያ ይፈለጋል',
+                please_login: 'እባክዎ መግቢያ ይፈለጋል',
+                processing: 'በማጠናቅ ላይ...',
+                success: 'ተሳክቷል!',
+                error_occurred: 'ስህተት ተፈጠረ። እንንም ይፈማ።'
                 products_trending: 'ተወዳጅ',
                 products_sale: 'ቅናሽ',
                 products_in_stock: 'በስቶክ ውስጥ',
