@@ -337,6 +337,17 @@ class I18n {
                 products_add_wishlist: 'ወደ ፈለጌ ጨምር',
                 products_remove_wishlist: 'ከፈለጌ አስወግድ',
                 
+                // Product Descriptions and Features
+                product_title_bullet_journal: 'የቡለት ጋዜጣ መጀመሪያ እቃ',
+                product_description_bullet_journal: 'ለቡለት ጋዜጣ ጉዞዎ መጀመሪያ የሚያስፈልጉ እቃዎች ሁሉ። የጥሩ ግድግዳ ያለው የመጽሐፍ መዋቻ፣ ሁለት-ጫፍ መለኪያዎች፣ ስታንሲሎች፣ እና የእኛ ብቸኛ መጀመሪያ መመሪያ። ሺዎች የሚቆጠቡ ጋዜጣ አጥሚቶችን ይቀላቀሉ!',
+                product_price_bullet_journal: 'ETB 32.99',
+                product_original_price_bullet_journal: 'ETB 42.99',
+                product_discount_bullet_journal: '23% ቅናሽ',
+                product_feature_1: 'A5 ግድግዳ ያለው የመጽሐፍ መዋቻ (200 ገጽ)',
+                product_feature_2: '12 ሁለት-ጫፍ መለኪያዎች',
+                product_feature_3: '6 የስዕል ስታንሲሎች',
+                product_feature_4: 'ዋሺ ቴፕ ሮል',
+                
                 // Cart
                 cart_title: 'የግዢ ሳጥን',
                 cart_empty_title: 'ሳጥንዎ ባዶ ነው',
@@ -822,14 +833,9 @@ class I18n {
         // Update HTML lang attribute
         document.documentElement.lang = this.currentLang;
 
-        // Update RTL/LTR direction for Amharic
-        if (this.currentLang === 'am') {
-            document.documentElement.dir = 'rtl';
-            document.body.classList.add('rtl-support');
-        } else {
-            document.documentElement.dir = 'ltr';
-            document.body.classList.remove('rtl-support');
-        }
+        // Update LTR direction for Amharic (like English, not Arabic RTL)
+        document.documentElement.dir = 'ltr';
+        document.body.classList.remove('rtl-support');
 
         // Update language selector
         this.updateLanguageSelector();
