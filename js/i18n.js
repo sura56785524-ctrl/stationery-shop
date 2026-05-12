@@ -842,8 +842,16 @@ class I18n {
 
     // Initialize language system
     init() {
-        this.updatePage();
-        this.updateLanguageSelector();
+        // Wait for DOM to be ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                this.updatePage();
+                this.updateLanguageSelector();
+            });
+        } else {
+            this.updatePage();
+            this.updateLanguageSelector();
+        }
     }
 
     updateLanguageSelector() {
