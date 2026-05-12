@@ -51,18 +51,22 @@ class CartService {
     async addItem(product, quantity = 1) {
         if (!this.loaded) await this.loadCart();
 
+        const isAmharic = window.i18n.getCurrentLanguage() === 'am';
+        const displayTitle = (isAmharic && product.titleAm) ? product.titleAm : product.title;
+
         const existingIndex = this.items.findIndex(i => i.productId === product.id);
 
         if (existingIndex >= 0) {
             this.items[existingIndex].quantity += quantity;
             if (this.items[existingIndex].quantity > product.stock) {
                 this.items[existingIndex].quantity = product.stock;
-                toast.warning(`Maximum stock (${product.stock}) reached for ${product.title}`);
+                toast.warning(isAmharic ? `ከፍተኛው ክምችት (${product.stock}) ለ${displayTitle} ደርሷል።` : `Maximum stock (${product.stock}) reached for ${product.title}`);
             }
         } else {
             this.items.push({
                 productId: product.id,
                 title: product.title,
+                titleAm: product.titleAm,
                 price: product.price,
                 imageURL: product.imageURL,
                 category: product.category,
@@ -72,7 +76,8 @@ class CartService {
         }
 
         await this.saveCart();
-        toast.success(`"${product.title}" added to cart! 🛒`);
+        const msg = isAmharic ? `"${displayTitle}" ወደ ሳጥን ተጨምረዋል! 🛒` : `"${product.title}" added to cart! 🛒`;
+        toast.success(msg);
         return this.items;
     }
 

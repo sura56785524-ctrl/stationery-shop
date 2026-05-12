@@ -171,18 +171,25 @@ class ProductsPage {
     }
 
     renderProductCard(product) {
+        const isAmharic = window.i18n.getCurrentLanguage() === 'am';
+        const title = (isAmharic && product.titleAm) ? product.titleAm : product.title;
+
         const discount = product.originalPrice > product.price
             ? Math.round((1 - product.price / product.originalPrice) * 100) : 0;
         const stars = this.renderStars(product.rating || 4);
         const stockClass = product.stock <= 10 ? 'low-stock' : 'in-stock';
-        const stockText = product.stock <= 0 ? 'Out of Stock' : product.stock <= 10 ? `Only ${product.stock} left!` : 'In Stock';
+        const stockText = product.stock <= 0
+            ? (isAmharic ? 'ከስቶክ ውጪ' : 'Out of Stock')
+            : product.stock <= 10
+                ? (isAmharic ? `ብቻ ${product.stock} ይቀራል!` : `Only ${product.stock} left!`)
+                : (isAmharic ? 'በስቶክ ውስጥ' : 'In Stock');
 
         const cardColClass = this.viewMode === 'list' ? 'col-12 fade-in' : 'col-xl-3 col-lg-4 col-md-6 fade-in';
         return `
         <div class="${cardColClass}">
             <div class="card product-card h-100">
                 <div class="card-img-wrapper">
-                    <img src="${product.imageURL}" alt="${product.title}" loading="lazy">
+                    <img src="${product.imageURL}" alt="${title}" loading="lazy">
                     <div class="product-badges">
                         ${discount > 0 ? `<span class="product-badge sale">${discount}% OFF</span>` : ''}
                         ${product.featured ? '<span class="product-badge featured">Featured</span>' : ''}
@@ -201,7 +208,7 @@ class ProductsPage {
                 </div>
                 <div class="card-body d-flex flex-column">
                     <div class="product-category">${product.category.replace('-', ' ')}</div>
-                    <h6 class="product-title">${product.title}</h6>
+                    <h6 class="product-title">${title}</h6>
                     <div class="product-rating">
                         <div class="stars">${stars}</div>
                         <span class="rating-text">(${product.reviewCount || 0})</span>
@@ -246,17 +253,21 @@ class ProductsPage {
         const result = await DatabaseService.getProduct(productId);
         if (!result.success) return;
         const product = result.data;
+        const isAmharic = window.i18n.getCurrentLanguage() === 'am';
+        const title = (isAmharic && product.titleAm) ? product.titleAm : product.title;
+        const description = (isAmharic && product.descriptionAm) ? product.descriptionAm : product.description;
+
         const discount = product.originalPrice > product.price
             ? Math.round((1 - product.price / product.originalPrice) * 100) : 0;
 
         document.getElementById('product-detail-body').innerHTML = `
             <div class="row g-4">
                 <div class="col-md-6">
-                    <img src="${product.imageURL}" alt="${product.title}" class="product-detail-image">
+                    <img src="${product.imageURL}" alt="${title}" class="product-detail-image">
                 </div>
                 <div class="col-md-6">
                     <div class="detail-category">${product.category.replace('-', ' ')}</div>
-                    <h3 class="detail-title">${product.title}</h3>
+                    <h3 class="detail-title">${title}</h3>
                     <div class="product-rating mb-3">
                         <div class="stars text-warning">${this.renderStars(product.rating || 4)}</div>
                         <span class="rating-text">(${product.reviewCount || 0} reviews)</span>
@@ -266,7 +277,7 @@ class ProductsPage {
                         ${discount > 0 ? `<span class="product-original-price fs-5">ETB ${product.originalPrice.toFixed(2)}</span>
                         <span class="product-discount">${discount}% OFF</span>` : ''}
                     </div>
-                    <p class="detail-description">${product.description}</p>
+                    <p class="detail-description">${description}</p>
                     <div class="d-flex gap-2 mb-3">
                         <span class="badge bg-light text-dark border">${product.brand || 'InkSpire'}</span>
                         <span class="badge ${product.stock > 10 ? 'bg-success' : product.stock > 0 ? 'bg-warning' : 'bg-danger'}">

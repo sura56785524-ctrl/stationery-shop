@@ -170,16 +170,18 @@
             }
 
             renderCartItem(item) {
+                const isAmharic = window.i18n.getCurrentLanguage() === 'am';
+                const displayTitle = (isAmharic && item.titleAm) ? item.titleAm : item.title;
                 const itemTotal = (item.price * item.quantity).toFixed(2);
                 return `
                 <div class="cart-item" id="cart-item-${item.productId}">
                     <div class="row align-items-center g-3">
                         <div class="col-auto">
-                            <img src="${item.imageURL}" alt="${item.title}" class="cart-item-image">
+                            <img src="${item.imageURL}" alt="${displayTitle}" class="cart-item-image">
                         </div>
                         <div class="col">
                             <div class="cart-item-category">${(item.category || '').replace('-', ' ')}</div>
-                            <div class="cart-item-title">${item.title}</div>
+                            <div class="cart-item-title">${displayTitle}</div>
                             <div class="cart-item-price d-md-none">ETB ${item.price.toFixed(2)}</div>
                         </div>
                         <div class="col-auto d-none d-md-block">

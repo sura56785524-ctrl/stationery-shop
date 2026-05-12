@@ -802,14 +802,10 @@ class I18n {
             this.updatePage();
             this.updateLanguageSelector();
             
-            // Update HTML dir attribute for RTL languages
-            if (lang === 'am') {
-                document.documentElement.setAttribute('dir', 'rtl');
-                document.documentElement.setAttribute('lang', 'am');
-            } else {
-                document.documentElement.removeAttribute('dir');
-                document.documentElement.setAttribute('lang', 'en');
-            }
+            // Update HTML lang attribute
+            document.documentElement.setAttribute('lang', lang);
+            // Amharic is LTR, so we ensure dir is ltr
+            document.documentElement.setAttribute('dir', 'ltr');
         }
     }
 
@@ -833,7 +829,7 @@ class I18n {
         // Update HTML lang attribute
         document.documentElement.lang = this.currentLang;
 
-        // Update LTR direction for Amharic (like English, not Arabic RTL)
+        // Ensure LTR direction for all supported languages
         document.documentElement.dir = 'ltr';
         document.body.classList.remove('rtl-support');
 
