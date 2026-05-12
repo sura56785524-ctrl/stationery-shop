@@ -831,6 +831,9 @@ class I18n {
             document.body.classList.remove('rtl-support');
         }
 
+        // Update language selector
+        this.updateLanguageSelector();
+
         // Dispatch event for other components
         window.dispatchEvent(new CustomEvent('languageChanged', { 
             detail: { language: this.currentLang } 
