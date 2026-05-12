@@ -326,7 +326,7 @@ class I18n {
                 please_login: 'እባክዎ መግቢያ ይፈለጋል',
                 processing: 'በማጠናቅ ላይ...',
                 success: 'ተሳክቷል!',
-                error_occurred: 'ስህተት ተፈጠረ። እንንም ይፈማ።'
+                error_occurred: 'ስህተት ተፈጠረ። እንንም ይፈማ።',
                 products_trending: 'ተወዳጅ',
                 products_sale: 'ቅናሽ',
                 products_in_stock: 'በስቶክ ውስጥ',

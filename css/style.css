@@ -2943,9 +2943,9 @@ body::before {
 
 /* Enhanced Dark Mode Components */
 [data-theme="dark"] .navbar {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: linear-gradient(135deg, #2d3561 0%, #4a5568 100%);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
     backdrop-filter: blur(16px);
 }
 
@@ -3076,18 +3076,19 @@ body::before {
 
 /* Professional Dark Mode Enhancements */
 [data-theme="dark"] body {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(135deg, #1a1f3a 0%, #2d3561 100%);
+    color: #e2e8f0;
 }
 
 [data-theme="dark"] .site-footer {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    border-top: 1px solid rgba(59, 130, 246, 0.2);
-    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #2d3561 0%, #1a1f3a 100%);
+    border-top: 1px solid rgba(99, 102, 241, 0.3);
+    box-shadow: 0 -8px 32px rgba(99, 102, 241, 0.2);
 }
 
 [data-theme="dark"] .product-card {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    border: 1px solid rgba(59, 130, 246, 0.15);
+    background: linear-gradient(135deg, #2d3561 0%, #4a5568 100%);
+    border: 1px solid rgba(99, 102, 241, 0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -3098,18 +3099,18 @@ body::before {
 }
 
 [data-theme="dark"] .testimonial-card {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    border: 1px solid rgba(59, 130, 246, 0.1);
+    background: linear-gradient(135deg, #2d3561 0%, #4a5568 100%);
+    border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 [data-theme="dark"] .newsletter-section {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    background: linear-gradient(135deg, #2d3561 0%, #4a5568 100%);
 }
 
 [data-theme="dark"] .btn-primary {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
     border: none;
-    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
