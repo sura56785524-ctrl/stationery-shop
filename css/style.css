@@ -189,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar {
     padding: 0.8rem 0;
     transition: var(--transition);
-    background: var(--white) !important;
+    background: var(--white);
     box-shadow: var(--shadow-sm);
     z-index: 1030;
 }
@@ -197,7 +197,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-scrolled {
     padding: 0.5rem 0;
     box-shadow: var(--shadow-md);
-    background: var(--navbar-scrolled-bg) !important;
+    background: var(--navbar-scrolled-bg);
     backdrop-filter: blur(20px);
 }
 
@@ -2802,75 +2802,19 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--gray-400);
 }
 
-/* RTL Support */
-.rtl-support {
-    direction: rtl;
-}
-
-.rtl-support .navbar-nav {
-    direction: ltr;
-}
-
-.rtl-support .text-end {
-    text-align: start !important;
-}
-
-.rtl-support .text-start {
-    text-align: end !important;
-}
-
-.rtl-support .ms-auto {
-    margin-left: 0 !important;
-    margin-right: auto !important;
-}
-
-.rtl-support .me-auto {
-    margin-right: 0 !important;
-    margin-left: auto !important;
-}
-
-.rtl-support .float-start {
-    float: right !important;
-}
-
-.rtl-support .float-end {
-    float: left !important;
-}
-
-.rtl-support .dropdown-menu {
-    right: 0;
-    left: auto;
-}
-
-.rtl-support .card-img-wrapper {
-    direction: ltr;
-}
-
-.rtl-support .product-actions {
-    direction: ltr;
-}
-
-.rtl-support .cart-item {
-    direction: ltr;
-}
-
-.rtl-support .quantity-control {
-    direction: ltr;
-}
-
-/* RTL font support for Amharic */
-.rtl-support body {
+/* Amharic Support (LTR) */
+[lang="am"] body {
     font-family: 'Inter', 'Noto Sans Ethiopic', sans-serif;
 }
 
-.rtl-support .product-title,
-.rtl-support .card-title,
-.rtl-support h1,
-.rtl-support h2,
-.rtl-support h3,
-.rtl-support h4,
-.rtl-support h5,
-.rtl-support h6 {
+[lang="am"] .product-title,
+[lang="am"] .card-title,
+[lang="am"] h1,
+[lang="am"] h2,
+[lang="am"] h3,
+[lang="am"] h4,
+[lang="am"] h5,
+[lang="am"] h6 {
     font-family: 'Inter', 'Noto Sans Ethiopic', sans-serif;
 }
 
@@ -3195,8 +3139,8 @@ body::before {
 }
 
 [data-theme="dark"] .navbar {
-    background-color: var(--navbar-scrolled-bg);
-    border-bottom: 1px solid var(--gray-700);
+    background: #0f172a !important;
+    border-bottom: 1px solid var(--primary);
 }
 
 [data-theme="dark"] .navbar-brand {
@@ -3204,7 +3148,12 @@ body::before {
 }
 
 [data-theme="dark"] .nav-link {
-    color: var(--gray-300) !important;
+    color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active {
+    color: var(--primary-light) !important;
 }
 
 [data-theme="dark"] .nav-link:hover,
@@ -3375,8 +3324,9 @@ body::before {
 
 /* Dark Mode Footer Styles */
 [data-theme="dark"] .site-footer {
-    background: #1e293b;
+    background: #0f172a;
     color: #f1f5f9;
+    border-top: 1px solid var(--primary);
 }
 
 [data-theme="dark"] .site-footer .footer-brand {
