@@ -2984,6 +2984,83 @@ body::before {
     color: var(--primary-light) !important;
 }
 
+[data-theme="dark"] .dropdown-menu {
+    background-color: #1e293b !important;
+    border: 1px solid #374151 !important;
+}
+
+[data-theme="dark"] .dropdown-item {
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+    background-color: #374151 !important;
+    color: #ffffff !important;
+}
+
+/* Hero section dark mode fixes */
+[data-theme="dark"] .hero-section {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+}
+
+[data-theme="dark"] .hero-title {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .hero-description {
+    color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .hero-subtitle {
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .section-title {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .section-subtitle {
+    color: #cbd5e1 !important;
+}
+
+/* Product cards dark mode */
+[data-theme="dark"] .product-title {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .product-price {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .product-original-price {
+    color: #94a3b8 !important;
+}
+
+/* Footer dark mode */
+[data-theme="dark"] .footer-brand {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .footer-description {
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .footer-links a {
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .footer-links a:hover {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .footer-contact li {
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .footer-bottom {
+    color: #94a3b8 !important;
+}
+
 [data-theme="dark"] .card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);

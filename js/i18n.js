@@ -760,35 +760,13 @@ class I18n {
     // Initialize language system
     init() {
         this.updatePage();
-        
-        // Add language switcher to navbar
-        this.addLanguageSwitcher();
+        this.updateLanguageSelector();
     }
 
-    addLanguageSwitcher() {
-        const navAuthSection = document.getElementById('nav-auth-section');
-        if (navAuthSection) {
-            const switcher = document.createElement('div');
-            switcher.className = 'language-switcher dropdown';
-            switcher.innerHTML = `
-                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                    <i class="bi bi-globe"></i> ${this.currentLang === 'am' ? 'አማ' : 'EN'}
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
-                    <li><a class="dropdown-item" href="#" data-lang="am">አማርኛ</a></li>
-                </ul>
-            `;
-            
-            navAuthSection.parentNode.insertBefore(switcher, navAuthSection);
-            
-            // Add event listeners
-            switcher.querySelectorAll('[data-lang]').forEach(item => {
-                item.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    this.setLanguage(item.dataset.lang);
-                });
-            });
+    updateLanguageSelector() {
+        const currentLangSpan = document.getElementById('currentLang');
+        if (currentLangSpan) {
+            currentLangSpan.textContent = this.currentLang === 'am' ? 'አማ' : 'EN';
         }
     }
 }
