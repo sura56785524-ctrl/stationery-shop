@@ -810,8 +810,16 @@
                 }
             }
 
-            addToWishlist(productId) {
-                toast.info('Wishlist feature coming soon! ❤️');
+            async addToWishlist(productId) {
+                const result = await DatabaseService.getProduct(productId);
+                if (result.success) {
+                    const product = result.data;
+                    if (wishlistService.addToWishlist(product)) {
+                        toast.success('Product added to wishlist! ❤️');
+                    } else {
+                        toast.info('Product already in wishlist!');
+                    }
+                }
             }
         }
 

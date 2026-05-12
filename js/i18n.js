@@ -5,7 +5,7 @@
 
 class I18n {
     constructor() {
-        this.currentLang = localStorage.getItem('inkspire_language') || 'en';
+        this.currentLang = localStorage.getItem('smartstationery_language') || 'en';
         this.translations = {
             en: {
                 // Navigation
