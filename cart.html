@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>(function(){const t=localStorage.getItem("inkspire_theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - SmartStationery</title>
@@ -116,7 +117,7 @@
                 container.innerHTML = `
                     <div class="col-lg-8">
                         <div class="card border-0 shadow-sm rounded-custom">
-                            <div class="card-header bg-white d-flex justify-content-between align-items-center py-3 px-4 border-0">
+                            <div class="card-header bg-theme-card d-flex justify-content-between align-items-center py-3 px-4 border-0">
                                 <h5 class="mb-0 fw-bold">${cartService.getItemCount()} Item${cartService.getItemCount() !== 1 ? 's' : ''} in Cart</h5>
                                 <button class="btn btn-outline-danger btn-sm" onclick="cartPage.clearCart()">
                                     <i class="bi bi-trash me-1"></i>Clear All
