@@ -6,7 +6,6 @@
 class App {
     constructor() {
         this.themeKey = 'inkspire_theme';
-        this.applyInitialTheme();
         this.init();
     }
 
@@ -18,13 +17,10 @@ class App {
         this.initScrollEffects();
         this.initSiteAssistant();
         this.initI18n();
-    }
 
-    applyInitialTheme() {
-        const savedTheme = localStorage.getItem(this.themeKey);
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-        this.setTheme(theme);
+        // Ensure UI matches current theme
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        this.updateThemeToggleIcon(currentTheme);
     }
 
     setTheme(theme) {

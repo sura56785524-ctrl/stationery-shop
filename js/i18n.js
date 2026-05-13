@@ -8,6 +8,14 @@ class I18n {
         this.currentLang = localStorage.getItem('smartstationery_language') || 'en';
         this.translations = {
             en: {
+                // Navbar
+                nav_home: 'Home',
+                nav_products: 'Products',
+                nav_about: 'About',
+                nav_cart: 'Cart',
+                nav_login: 'Login',
+                nav_register: 'Register',
+
                 // Navigation
                 nav_home: 'Home',
                 nav_products: 'Products',
@@ -103,9 +111,13 @@ class I18n {
                 checkout_telebirr: 'Telebirr',
                 
                 // Auth
+                login_welcome: 'Welcome Back!',
+                login_subtitle: 'Sign in to your account to continue',
                 login_title: 'Login',
                 register_title: 'Register',
-                email: 'Email',
+                register_welcome: 'Create Account',
+                register_subtitle: 'Join our community of stationery lovers',
+                email: 'Email Address',
                 password: 'Password',
                 confirm_password: 'Confirm Password',
                 full_name: 'Full Name',
@@ -114,6 +126,12 @@ class I18n {
                 forgot_password: 'Forgot Password?',
                 already_have_account: 'Already have an account?',
                 dont_have_account: 'Don\'t have an account?',
+                create_one: 'Create one',
+                sign_in: 'Sign In',
+                sign_up: 'Sign Up',
+                reset_password: 'Reset Password',
+                send_reset_link: 'Send Reset Link',
+                reset_email_desc: 'Enter your email address and we\'ll send you a password reset link.',
                 
                 // General Messages
                 welcome: 'Welcome to SmartStationery',
@@ -125,14 +143,22 @@ class I18n {
                 password_mismatch: 'Passwords do not match'
             },
             am: {
+                // Navbar
+                nav_home: 'መነሻ',
+                nav_products: 'ምርቶች',
+                nav_about: 'ስለ እኛ',
+                nav_cart: 'ቅርጫት',
+                nav_login: 'ግባ',
+                nav_register: 'ተመዝገብ',
+
                 // Navigation
-                nav_home: 'ቤት',
-                nav_products: 'እቃዎች',
-                nav_about: 'ስለ ኛች',
-                nav_cart: 'የግዢ ሳጥን',
-                nav_login: 'መግቢያ',
-                nav_register: 'ምዝገባ',
-                nav_logout: 'መውጣት',
+                nav_home: 'መነሻ',
+                nav_products: 'ምርቶች',
+                nav_about: 'ስለ እኛ',
+                nav_cart: 'ቅርጫት',
+                nav_login: 'ግባ',
+                nav_register: 'ተመዝገብ',
+                nav_logout: 'ውጣ',
                 nav_dashboard: 'ዳሽቦርድ',
                 
                 // Common
@@ -220,17 +246,27 @@ class I18n {
                 checkout_telebirr: 'ቴሌቢብር',
                 
                 // Auth
+                login_welcome: 'እንኳን በደህና መጡ!',
+                login_subtitle: 'ለመቀጠል ወደ መለያዎ ይግቡ',
                 login_title: 'መግቢያ',
                 register_title: 'ምዝገባ',
-                email: 'ኢሜልል',
-                password: 'የሚላግ',
-                confirm_password: 'የሚላግ ማማም',
-                full_name: 'ሙስ ስም',
-                phone_number: 'ስልር ቁጥር',
-                remember_me: 'አስውርኝ',
-                forgot_password: 'የሚላግ ረሰው?',
-                already_have_account: 'አካልን የምልጥ ተርች?',
-                dont_have_account: 'አካልን የምልጥ ተርች?',
+                register_welcome: 'መለያ ይፍጠሩ',
+                register_subtitle: 'የጽህፈት መሳሪያ ወዳጆችን ይቀላቀሉ',
+                email: 'የኢሜል አድራሻ',
+                password: 'የይለፍ ቃል',
+                confirm_password: 'የይለፍ ቃል ያረጋግጡ',
+                full_name: 'ሙሉ ስም',
+                phone_number: 'የስልክ ቁጥር',
+                remember_me: 'አስታውሰኝ',
+                forgot_password: 'የይለፍ ቃል ረሱ?',
+                already_have_account: 'መለያ አለዎት?',
+                dont_have_account: 'መለያ የለዎትም?',
+                create_one: 'አዲስ ይፍጠሩ',
+                sign_in: 'ግባ',
+                sign_up: 'ተመዝገብ',
+                reset_password: 'የይለፍ ቃል ቀይር',
+                send_reset_link: 'የመቀየሪያ ሊንክ ላክ',
+                reset_email_desc: 'የኢሜል አድራሻዎን ያስገቡ እና የይለፍ ቃል መቀየሪያ ሊንክ እንልክልዎታለን።',
                 
                 // General Messages
                 welcome: 'እንንም ደማሳተ SmartStationery',

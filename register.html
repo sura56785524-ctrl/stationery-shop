@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>(function(){const t=localStorage.getItem("inkspire_theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - SmartStationery</title>
@@ -35,7 +36,7 @@
                         <div class="mb-3">
                             <label for="reg-name" class="form-label">Full Name</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-white"><i class="bi bi-person text-muted"></i></span>
+                                <span class="input-group-text bg-theme-card"><i class="bi bi-person text-muted"></i></span>
                                 <input type="text" class="form-control" id="reg-name" placeholder="John Doe" required>
                             </div>
                         </div>
@@ -43,7 +44,7 @@
                         <div class="mb-3">
                             <label for="reg-email" class="form-label">Email Address</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-white"><i class="bi bi-envelope text-muted"></i></span>
+                                <span class="input-group-text bg-theme-card"><i class="bi bi-envelope text-muted"></i></span>
                                 <input type="email" class="form-control" id="reg-email" placeholder="your@email.com" required>
                             </div>
                         </div>
@@ -51,7 +52,7 @@
                         <div class="mb-3">
                             <label for="reg-password" class="form-label">Password</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-white"><i class="bi bi-lock text-muted"></i></span>
+                                <span class="input-group-text bg-theme-card"><i class="bi bi-lock text-muted"></i></span>
                                 <input type="password" class="form-control" id="reg-password" 
                                        placeholder="Min 6 characters" required minlength="6">
                                 <span class="input-group-text password-toggle" id="toggle-reg-password">
@@ -64,7 +65,7 @@
                         <div class="mb-3">
                             <label for="reg-confirm-password" class="form-label">Confirm Password</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-white"><i class="bi bi-lock-fill text-muted"></i></span>
+                                <span class="input-group-text bg-theme-card"><i class="bi bi-lock-fill text-muted"></i></span>
                                 <input type="password" class="form-control" id="reg-confirm-password" 
                                        placeholder="Re-enter password" required>
                             </div>
