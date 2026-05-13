@@ -57,7 +57,8 @@ class AuthService {
             this.currentUserData = result.user;
             this.currentUser = { uid: result.user.id, email: result.user.email };
             this.updateNavbar();
-            toast.success(`Welcome to InkSpire, ${name}! 🎉`);
+            const t = (k) => window.i18n ? window.i18n.t(k) : k;
+            toast.success(`${t('welcome')}, ${name}! 🎉`);
             return { success: true, user: this.currentUser };
         } catch (error) {
             console.error('Registration error:', error);
@@ -82,7 +83,8 @@ class AuthService {
             this.currentUserData = result.user;
             this.currentUser = { uid: result.user.id, email: result.user.email };
             this.updateNavbar();
-            toast.success(`Welcome back! 👋`);
+            const t = (k) => window.i18n ? window.i18n.t(k) : k;
+            toast.success(`${t('welcome_back')}! 👋`);
             return { success: true, user: this.currentUser, userData: this.currentUserData };
         } catch (error) {
             console.error('Login error:', error);
@@ -99,11 +101,13 @@ class AuthService {
             this.currentUser = null;
             this.currentUserData = null;
             this.updateNavbar();
-            toast.info('You have been logged out.');
+            const t = (k) => window.i18n ? window.i18n.t(k) : k;
+            toast.info(t('toast_logout_success'));
             window.location.href = 'index.html';
         } catch (error) {
             console.error('Logout error:', error);
-            toast.error('Logout failed. Please try again.');
+            const t = (k) => window.i18n ? window.i18n.t(k) : k;
+            toast.error(t('error_message'));
         }
     }
 
@@ -142,6 +146,8 @@ class AuthService {
             const userName = this.currentUserData?.name || this.currentUser.displayName || 'User';
             const isAdmin = this.isAdmin();
             const avatarUrl = this.currentUserData?.avatar || '';
+            const t = (k) => window.i18n ? window.i18n.t(k) : k;
+
             navAuth.innerHTML = `
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" 
@@ -154,27 +160,28 @@ class AuthService {
                         <span class="d-none d-md-inline">${userName}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0">
-                        <li><h6 class="dropdown-header">Hello, ${userName}!</h6></li>
+                        <li><h6 class="dropdown-header">${t('welcome_back')}, ${userName}!</h6></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="dashboard.html">
-                            <i class="bi bi-speedometer2 me-2"></i>Dashboard</a></li>
+                            <i class="bi bi-speedometer2 me-2"></i>${t('nav_dashboard')}</a></li>
                         <li><a class="dropdown-item" href="cart.html">
-                            <i class="bi bi-cart3 me-2"></i>My Cart</a></li>
+                            <i class="bi bi-cart3 me-2"></i>${t('nav_cart')}</a></li>
                         ${isAdmin ? `<li><a class="dropdown-item text-primary fw-bold" href="admin.html">
-                            <i class="bi bi-shield-lock me-2"></i>Admin Panel</a></li>` : ''}
+                            <i class="bi bi-shield-lock me-2"></i>${t('admin_dashboard')}</a></li>` : ''}
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item text-danger" href="#" onclick="authService.logout(); return false;">
-                            <i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                            <i class="bi bi-box-arrow-right me-2"></i>${t('nav_logout')}</a></li>
                     </ul>
                 </div>
             `;
         } else {
+            const t = (k) => window.i18n ? window.i18n.t(k) : k;
             navAuth.innerHTML = `
                 <a href="login.html" class="btn btn-outline-primary btn-sm me-2">
-                    <i class="bi bi-box-arrow-in-right me-1"></i>Login
+                    <i class="bi bi-box-arrow-in-right me-1"></i>${t('nav_login')}
                 </a>
                 <a href="register.html" class="btn btn-primary btn-sm">
-                    <i class="bi bi-person-plus me-1"></i>Register
+                    <i class="bi bi-person-plus me-1"></i>${t('nav_register')}
                 </a>
             `;
         }
@@ -205,7 +212,8 @@ class AuthService {
 
     requireAuth(redirectUrl = 'login.html') {
         if (!this.isLoggedIn()) {
-            toast.warning('Please login to continue.');
+            const t = (k) => window.i18n ? window.i18n.t(k) : k;
+            toast.warning(t('toast_login_required'));
             setTimeout(() => {
                 window.location.href = redirectUrl + '?redirect=' + encodeURIComponent(window.location.href);
             }, 1000);
@@ -215,13 +223,14 @@ class AuthService {
     }
 
     requireAdmin() {
+        const t = (k) => window.i18n ? window.i18n.t(k) : k;
         if (!this.isLoggedIn()) {
-            toast.warning('Please login to continue.');
+            toast.warning(t('toast_login_required'));
             setTimeout(() => { window.location.href = 'login.html'; }, 1000);
             return false;
         }
         if (!this.isAdmin()) {
-            toast.error('Access denied. Admin privileges required.');
+            toast.error(t('toast_access_denied'));
             setTimeout(() => { window.location.href = 'index.html'; }, 1000);
             return false;
         }
