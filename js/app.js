@@ -108,7 +108,7 @@ class App {
                 e.preventDefault();
                 const email = newsletterForm.querySelector('input').value;
                 if (email) {
-                    toast.success('Thank you for subscribing! 📧');
+                    toast.success(window.i18n.t('toast_subscribe_success'));
                     newsletterForm.reset();
                 }
             });
@@ -159,9 +159,8 @@ class SiteAssistant {
         this.renderWidget();
         this.bindEvents();
         await this.loadProductContext();
-        this.addBotMessage(
-            `Hi! I am InkSpire Assistant — ask me anything about our products, delivery, payments, or your cart. You are on the ${this.pageName} page.`
-        );
+        const welcome = window.i18n ? window.i18n.t('assistant_welcome') : `Hi! I am InkSpire Assistant — ask me anything about our products, delivery, payments, or your cart. You are on the ${this.pageName} page.`;
+        this.addBotMessage(welcome);
     }
 
     detectPageName() {
@@ -190,6 +189,7 @@ class SiteAssistant {
     renderWidget() {
         const wrapper = document.createElement('div');
         wrapper.className = 'site-assistant';
+        const t = (k) => window.i18n ? window.i18n.t(k) : k;
         wrapper.innerHTML = `
             <button class="assistant-toggle" id="assistant-toggle" type="button" aria-label="Open assistant">
                 <i class="bi bi-robot"></i>
@@ -203,7 +203,7 @@ class SiteAssistant {
                 </div>
                 <div class="assistant-messages" id="assistant-messages"></div>
                 <form class="assistant-input-row" id="assistant-form">
-                    <input type="text" id="assistant-input" class="assistant-input" placeholder="Ask a question — I use live catalog data…" maxlength="1500" autocomplete="off" />
+                    <input type="text" id="assistant-input" class="assistant-input" placeholder="${t('assistant_placeholder')}" data-i18n="assistant_placeholder" maxlength="1500" autocomplete="off" />
                     <button class="assistant-send" type="submit" id="assistant-send"><i class="bi bi-send-fill"></i></button>
                 </form>
             </div>
@@ -248,7 +248,7 @@ class SiteAssistant {
                 typing.id = 'assistant-typing';
                 typing.className = 'assistant-msg assistant-msg-bot assistant-typing';
                 typing.setAttribute('aria-live', 'polite');
-                typing.textContent = 'Thinking…';
+                typing.textContent = window.i18n ? window.i18n.t('assistant_thinking') : 'Thinking…';
                 box.appendChild(typing);
                 box.scrollTop = box.scrollHeight;
             }
@@ -312,7 +312,7 @@ class SiteAssistant {
             this.addBotMessage(fallback);
             if (!sessionStorage.getItem('inkspire_ai_network_hint')) {
                 sessionStorage.setItem('inkspire_ai_network_hint', '1');
-                toast.warning('Assistant could not reach the server — showing basic answers.');
+                toast.warning(window.i18n.t('assistant_fallback_network'));
             }
         } finally {
             this.setSubmitting(false);
@@ -350,55 +350,65 @@ class SiteAssistant {
             ? cartService.getItemCount()
             : 0;
 
+        const t = (k, p) => window.i18n ? window.i18n.t(k, p) : k;
+
         if (question.includes('hello') || question.includes('hi') || question.includes('hey')) {
-            return 'Hello! Ask me anything about products, shipping, payment methods, orders, or your cart.';
+            return t('assistant_fallback_hello');
         }
 
         if (question.includes('shipping') || question.includes('delivery')) {
-            return 'Shipping is free for orders above ETB 2750. Otherwise shipping is ETB 330. You can complete delivery details in Checkout.';
+            return t('assistant_fallback_shipping');
         }
 
         if (question.includes('return') || question.includes('refund')) {
-            return 'This store advertises an easy 30-day return policy. If you want, I can guide you to contact details on the About/Home pages.';
+            return t('assistant_fallback_returns');
         }
 
         if (question.includes('payment') || question.includes('pay')) {
-            return 'Available payment methods are Cash on Delivery, CBE Transfer, and Telebirr. You can select one during Checkout.';
+            return t('assistant_fallback_payment');
         }
 
         if (question.includes('checkout')) {
-            return 'To checkout: add items to cart, open Cart, click Proceed to Checkout, fill shipping address, choose payment method, and place your order.';
+            return t('assistant_fallback_checkout');
         }
 
         if (question.includes('cart')) {
-            return `You currently have ${cartCount} item(s) in your cart. You can update quantity or remove items from the Cart page.`;
+            return t('assistant_fallback_cart', { count: cartCount });
         }
 
         if (question.includes('login') || question.includes('register') || question.includes('account')) {
-            return 'Use Login/Register from the navbar. After login, your cart and orders are connected to your account.';
+            return t('assistant_fallback_account');
         }
 
         if (question.includes('category') || question.includes('categories')) {
-            return 'Main categories include Notebooks, Pens, Pencils, Art Supplies, Paper, and Organizers.';
+            return t('assistant_fallback_categories');
         }
 
         const productMatches = this.products
             .filter((p) => {
-                const haystack = `${p.title} ${p.description} ${p.category} ${p.brand || ''}`.toLowerCase();
+                const title = (window.i18n?.getCurrentLanguage() === 'am' && p.titleAm) ? p.titleAm : p.title;
+                const desc = (window.i18n?.getCurrentLanguage() === 'am' && p.descriptionAm) ? p.descriptionAm : p.description;
+                const haystack = `${title} ${desc} ${p.category} ${p.brand || ''}`.toLowerCase();
                 return question.split(/\s+/).some((term) => term.length > 2 && haystack.includes(term));
             })
             .slice(0, this.maxSuggestions);
 
         if (productMatches.length > 0) {
-            const lines = productMatches.map((p) => `${p.title} ($${Number(p.price || 0).toFixed(2)})`);
-            return `I found products that may match: ${lines.join(', ')}. Open the Products page and search these names for full details.`;
+            const isAmharic = window.i18n?.getCurrentLanguage() === 'am';
+            const lines = productMatches.map((p) => {
+                const title = (isAmharic && p.titleAm) ? p.titleAm : p.title;
+                return `${title} (ETB ${Number(p.price || 0).toFixed(2)})`;
+            });
+            return isAmharic
+                ? `እነዚህን ምርቶች አግኝቻለሁ: ${lines.join(', ')}። ለሙሉ ዝርዝር የምርቶች ገጽን ይክፈቱ።`
+                : `I found products that may match: ${lines.join(', ')}. Open the Products page and search these names for full details.`;
         }
 
         if (question.includes('contact') || question.includes('phone') || question.includes('email')) {
-            return 'You can contact InkSpire by phone (+251956785524) or email (sura56785524@gmail.com).';
+            return t('assistant_fallback_contact');
         }
 
-        return 'I can help with products, categories, cart, checkout, shipping, payment, account, and contact info. Try asking: "What payment methods are available?"';
+        return t('assistant_fallback_general');
     }
 
     initI18n() {

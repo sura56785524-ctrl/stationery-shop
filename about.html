@@ -15,21 +15,50 @@
 <body>
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="bi bi-pen-fill"></i>SmartStationery</a>
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-pen-fill"></i>
+                <span data-i18n="nav_brand">SmartStationery</span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-i18n="nav_home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html" data-i18n="nav_products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html" data-i18n="nav_about">About</a>
+                    </li>
                 </ul>
                 <div class="d-flex align-items-center gap-3">
                     <a href="cart.html" class="nav-link nav-cart-btn position-relative">
                         <i class="bi bi-cart3 fs-5"></i>
                         <span class="cart-count-badge" id="cart-count-badge" style="display:none;">0</span>
                     </a>
+                    <a href="wishlist.html" class="nav-link position-relative">
+                        <i class="bi bi-heart fs-5"></i>
+                        <span class="wishlist-count-badge" id="wishlist-count-badge" style="display:none;">0</span>
+                    </a>
+                    <!-- Enhanced Language Selector -->
+                    <div class="nav-item dropdown language-switcher">
+                        <button class="nav-link dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown">
+                            <i class="bi bi-globe2"></i>
+                            <span id="currentLang">EN</span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="window.i18n.setLanguage('en')">
+                                <i class="bi bi-flag"></i> English
+                            </a></li>
+                            <li><a class="dropdown-item" href="#" onclick="window.i18n.setLanguage('am')">
+                                <i class="bi bi-flag"></i> አማርኛ
+                            </a></li>
+                        </ul>
+                    </div>
                     <div id="nav-auth-section"></div>
                 </div>
             </div>
@@ -40,32 +69,54 @@
         <!-- About Hero -->
         <div class="about-hero">
             <div class="container position-relative" style="z-index:1;">
-                <h1>About SmartStationery</h1>
-                <p>Fueling creativity and productivity through premium stationery since 2026.</p>
+                <h1 data-i18n="about_title">About SmartStationery</h1>
+                <p data-i18n="about_hero_subtitle">Fueling creativity and productivity through premium stationery since 2026.</p>
             </div>
         </div>
 
         <!-- Mission -->
         <section class="py-5">
             <div class="container">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-6 animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=600" 
-                             alt="Our Story" class="img-fluid rounded-custom shadow-lg-custom">
-                    </div>
-                    <div class="col-lg-6 animate-on-scroll">
-                        <h2 class="section-title">Our Mission</h2>
-                        <p class="text-muted mt-3" style="line-height:1.9;">
-                            At SmartStationery, we believe that the right stationery can transform the way you 
-                            think, create, and express yourself. Our mission is to provide high-quality, 
-                            beautifully designed stationery and art supplies that inspire creativity in 
-                            everyone — from students and professionals to artists and journalers.
-                        </p>
-                        <p class="text-muted" style="line-height:1.9;">
-                            We carefully curate products from the world's most trusted brands and emerging 
-                            artisans, ensuring every item in our shop meets our standards of quality, 
-                            sustainability, and design excellence.
-                        </p>
+                <div class="mission-card animate-on-scroll">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-6">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=600"
+                                     alt="Our Story" class="img-fluid rounded-custom shadow-lg-custom">
+                                <div class="position-absolute bottom-0 end-0 bg-primary text-white p-3 rounded-custom shadow-lg d-none d-md-block" style="transform: translate(20px, 20px);">
+                                    <div class="h4 fw-bold mb-0">6+</div>
+                                    <div class="small" data-i18n="hero_stats_products">Years Experience</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h2 class="section-title" data-i18n="about_mission_title">Our Mission</h2>
+                            <p class="mt-4" style="line-height:1.9; font-size: 1.1rem; color: var(--text-main);" data-i18n="about_mission_p1">
+                                At SmartStationery, we believe that the right stationery can transform the way you
+                                think, create, and express yourself. Our mission is to provide high-quality,
+                                beautifully designed stationery and art supplies that inspire creativity in
+                                everyone — from students and professionals to artists and journalers.
+                            </p>
+                            <p class="mt-3" style="line-height:1.9; color: var(--text-muted);" data-i18n="about_mission_p2">
+                                We carefully curate products from the world's most trusted brands and emerging
+                                artisans, ensuring every item in our shop meets our standards of quality,
+                                sustainability, and design excellence.
+                            </p>
+                            <div class="row g-4 mt-2">
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="bi bi-check-circle-fill text-primary"></i>
+                                        <span class="fw-bold small" data-i18n="value_quality_title">Quality First</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="bi bi-check-circle-fill text-primary"></i>
+                                        <span class="fw-bold small" data-i18n="value_innovation_title">Innovation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,8 +126,8 @@
         <section class="py-5 bg-theme-card">
             <div class="container">
                 <div class="text-center mb-5 animate-on-scroll">
-                    <h2 class="section-title text-center">Our Values</h2>
-                    <p class="section-subtitle mx-auto mt-3">The principles that guide everything we do.</p>
+                    <h2 class="section-title text-center" data-i18n="about_values_title">Our Values</h2>
+                    <p class="section-subtitle mx-auto mt-3" data-i18n="about_values_subtitle">The principles that guide everything we do.</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-6 animate-on-scroll">
@@ -84,8 +135,8 @@
                             <div class="about-value-icon bg-primary-soft text-primary">
                                 <i class="bi bi-star"></i>
                             </div>
-                            <h5>Quality First</h5>
-                            <p class="text-muted small">Every product is tested and curated to ensure premium quality.</p>
+                            <h5 data-i18n="value_quality_title">Quality First</h5>
+                            <p class="text-muted small" data-i18n="value_quality_desc">Every product is tested and curated to ensure premium quality.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 animate-on-scroll">
@@ -93,8 +144,8 @@
                             <div class="about-value-icon bg-success-soft text-success">
                                 <i class="bi bi-tree"></i>
                             </div>
-                            <h5>Sustainability</h5>
-                            <p class="text-muted small">We prioritize eco-friendly products and packaging.</p>
+                            <h5 data-i18n="value_sustainability_title">Sustainability</h5>
+                            <p class="text-muted small" data-i18n="value_sustainability_desc">We prioritize eco-friendly products and packaging.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 animate-on-scroll">
@@ -102,8 +153,8 @@
                             <div class="about-value-icon bg-warning-soft" style="color:var(--secondary);">
                                 <i class="bi bi-lightbulb"></i>
                             </div>
-                            <h5>Innovation</h5>
-                            <p class="text-muted small">Constantly discovering new and creative products.</p>
+                            <h5 data-i18n="value_innovation_title">Innovation</h5>
+                            <p class="text-muted small" data-i18n="value_innovation_desc">Constantly discovering new and creative products.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 animate-on-scroll">
@@ -111,8 +162,8 @@
                             <div class="about-value-icon bg-danger-soft text-danger">
                                 <i class="bi bi-heart"></i>
                             </div>
-                            <h5>Community</h5>
-                            <p class="text-muted small">Building a community of passionate stationery lovers.</p>
+                            <h5 data-i18n="value_community_title">Community</h5>
+                            <p class="text-muted small" data-i18n="value_community_desc">Building a community of passionate stationery lovers.</p>
                         </div>
                     </div>
                 </div>
@@ -122,34 +173,34 @@
         <!-- Timeline -->
         <section class="py-5">
             <div class="container">
-                <h2 class="section-title text-center mb-5 animate-on-scroll">Our Journey</h2>
+                <h2 class="section-title text-center mb-5 animate-on-scroll" data-i18n="about_journey_title">Our Journey</h2>
                 <div class="mx-auto" style="max-width:700px;">
                     <div class="timeline-item animate-on-scroll">
                         <div class="timeline-dot">2020</div>
                         <div>
-                            <h5 class="fw-bold">Founded</h5>
-                            <p class="text-muted">InkSpire started as a small online shop with a curated selection of 50 products.</p>
+                            <h5 class="fw-bold" data-i18n="journey_founded_title">Founded</h5>
+                            <p class="text-muted" data-i18n="journey_founded_desc">InkSpire started as a small online shop with a curated selection of 50 products.</p>
                         </div>
                     </div>
                     <div class="timeline-item animate-on-scroll">
                         <div class="timeline-dot">2021</div>
                         <div>
-                            <h5 class="fw-bold">1,000 Customers</h5>
-                            <p class="text-muted">Reached our first milestone and expanded to over 200 products.</p>
+                            <h5 class="fw-bold" data-i18n="journey_customers_title">1,000 Customers</h5>
+                            <p class="text-muted" data-i18n="journey_customers_desc">Reached our first milestone and expanded to over 200 products.</p>
                         </div>
                     </div>
                     <div class="timeline-item animate-on-scroll">
                         <div class="timeline-dot">2022</div>
                         <div>
-                            <h5 class="fw-bold">International Shipping</h5>
-                            <p class="text-muted">Began shipping to over 30 countries worldwide.</p>
+                            <h5 class="fw-bold" data-i18n="journey_shipping_title">International Shipping</h5>
+                            <p class="text-muted" data-i18n="journey_shipping_desc">Began shipping to over 30 countries worldwide.</p>
                         </div>
                     </div>
                     <div class="timeline-item animate-on-scroll">
                         <div class="timeline-dot">2024</div>
                         <div>
-                            <h5 class="fw-bold">10,000+ Happy Customers</h5>
-                            <p class="text-muted">Proudly serving a growing global community of stationery enthusiasts.</p>
+                            <h5 class="fw-bold" data-i18n="journey_milestone_title">10,000+ Happy Customers</h5>
+                            <p class="text-muted" data-i18n="journey_milestone_desc">Proudly serving a growing global community of stationery enthusiasts.</p>
                         </div>
                     </div>
                 </div>
@@ -160,8 +211,8 @@
         <section class="py-5 bg-theme-card">
             <div class="container">
                 <div class="text-center mb-5 animate-on-scroll">
-                    <h2 class="section-title text-center">Meet Our Team</h2>
-                    <p class="section-subtitle mx-auto mt-3">The passionate people behind InkSpire.</p>
+                    <h2 class="section-title text-center" data-i18n="about_team_title">Meet Our Team</h2>
+                    <p class="section-subtitle mx-auto mt-3" data-i18n="about_team_subtitle">The passionate people behind InkSpire.</p>
                 </div>
                 <div class="row g-4 justify-content-center">
                     <div class="col-lg-3 col-md-6 animate-on-scroll">
@@ -170,7 +221,7 @@
                                 <i class="bi bi-person"></i>
                             </div>
                             <h6 class="mt-3 mb-1 fw-bold">SURAFEL ALEMU</h6>
-                            <p class="text-muted small mb-2">Founder & CEO</p>
+                            <p class="text-muted small mb-2" data-i18n="role_founder">Founder & CEO</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
                                 <a href="https://www.instagram.com/smartstationery_ethiopia/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -183,7 +234,7 @@
                                 <i class="bi bi-person"></i>
                             </div>
                             <h6 class="mt-3 mb-1 fw-bold">AJIBEW ABEBE</h6>
-                            <p class="text-muted small mb-2">Creative Director</p>
+                            <p class="text-muted small mb-2" data-i18n="role_director">Creative Director</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
                                 <a href="https://www.instagram.com/smartstationery_ethiopia/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -196,7 +247,7 @@
                                 <i class="bi bi-person"></i>
                             </div>
                             <h6 class="mt-3 mb-1 fw-bold">GENZEB DAGIM</h6>
-                            <p class="text-muted small mb-2">Head of Operations</p>
+                            <p class="text-muted small mb-2" data-i18n="role_ops">Head of Operations</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
                                 <a href="https://www.instagram.com/smartstationery_ethiopia/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -210,22 +261,22 @@
         <section class="py-5">
             <div class="container">
                 <div class="text-center mb-4 animate-on-scroll">
-                    <h2 class="section-title text-center">Contact & Location</h2>
-                    <p class="section-subtitle mx-auto mt-3">Visit us or reach us anytime.</p>
+                    <h2 class="section-title text-center" data-i18n="contact_location_title">Contact & Location</h2>
+                    <p class="section-subtitle mx-auto mt-3" data-i18n="contact_location_subtitle">Visit us or reach us anytime.</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-6 animate-on-scroll">
                         <div class="dashboard-card h-100">
-                            <h5 class="fw-bold mb-3"><i class="bi bi-geo-alt me-2"></i>Our Location</h5>
+                            <h5 class="fw-bold mb-3"><i class="bi bi-geo-alt me-2"></i><span data-i18n="our_location_title">Our Location</span></h5>
                             <p class="text-muted mb-2"><strong>SmartStationery</strong></p>
-                            <p class="text-muted mb-3">Piassa, Addis Ababa, Ethiopia</p>
+                            <p class="text-muted mb-3" data-i18n="footer_address">Piassa, Addis Ababa, Ethiopia</p>
                             <p class="small text-muted mb-1"><i class="bi bi-telephone me-2"></i>+251956785524</p>
                             <p class="small text-muted mb-0"><i class="bi bi-envelope me-2"></i>sura56785524@gmail.com</p>
                         </div>
                     </div>
                     <div class="col-lg-6 animate-on-scroll">
                         <div class="dashboard-card h-100">
-                            <h5 class="fw-bold mb-3"><i class="bi bi-map me-2"></i>Map</h5>
+                            <h5 class="fw-bold mb-3"><i class="bi bi-map me-2"></i><span data-i18n="map_title">Map</span></h5>
                             <iframe
                                 title="SmartStationery Location Map"
                                 src="https://www.google.com/maps?q=Addis%20Ababa%20Piassa&output=embed"
@@ -243,8 +294,64 @@
 
     <footer class="site-footer">
         <div class="container">
-            <div class="footer-bottom text-center">
-                <p>&copy; 2026 SmartStationery. All rights reserved.</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <i class="bi bi-pen-fill"></i>
+                        <span data-i18n="nav_brand">SmartStationery</span>
+                    </div>
+                    <p class="footer-description" data-i18n="footer_description">
+                        Your one-stop shop for premium stationery, art supplies, and office essentials.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/smartstationery_ethiopia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 data-i18n="quick_links">Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                        <li><a href="products.html" data-i18n="nav_products">Products</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">About Us</a></li>
+                        <li><a href="cart.html" data-i18n="nav_cart">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 data-i18n="categories">Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=notebooks" data-i18n="products_notebooks">Notebooks</a></li>
+                        <li><a href="products.html?category=pens" data-i18n="products_pens">Pens</a></li>
+                        <li><a href="products.html?category=pencils" data-i18n="products_pencils">Pencils</a></li>
+                        <li><a href="products.html?category=art-supplies" data-i18n="products_art_supplies">Art Supplies</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 data-i18n="contact_us">Contact Us</h6>
+                    <ul class="footer-links footer-contact">
+                        <li>
+                            <i class="bi bi-geo-alt"></i>
+                            <span data-i18n="footer_address">Piassa, Addis Ababa, Ethiopia</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i>
+                            <span>+251956785524</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope"></i>
+                            <span>sura56785524@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <p data-i18n="footer_copyright">&copy; 2026 SmartStationery. All rights reserved.</p>
+                <div class="payment-icons">
+                    <i class="bi bi-credit-card-2-front"></i>
+                    <i class="bi bi-paypal"></i>
+                    <i class="bi bi-stripe"></i>
+                    <i class="bi bi-wallet2"></i>
+                </div>
             </div>
         </div>
     </footer>
@@ -253,6 +360,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/firebase-config.js"></script>
     <script src="js/toast.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/app.js"></script>

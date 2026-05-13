@@ -51,7 +51,8 @@ class CartService {
     async addItem(product, quantity = 1) {
         if (!this.loaded) await this.loadCart();
 
-        const isAmharic = window.i18n.getCurrentLanguage() === 'am';
+        const t = (k, p) => window.i18n ? window.i18n.t(k, p) : k;
+        const isAmharic = window.i18n?.getCurrentLanguage() === 'am';
         const displayTitle = (isAmharic && product.titleAm) ? product.titleAm : product.title;
 
         const existingIndex = this.items.findIndex(i => i.productId === product.id);
@@ -60,7 +61,7 @@ class CartService {
             this.items[existingIndex].quantity += quantity;
             if (this.items[existingIndex].quantity > product.stock) {
                 this.items[existingIndex].quantity = product.stock;
-                toast.warning(isAmharic ? `ከፍተኛው ክምችት (${product.stock}) ለ${displayTitle} ደርሷል።` : `Maximum stock (${product.stock}) reached for ${product.title}`);
+                toast.warning(t('products_low_stock', { count: product.stock }));
             }
         } else {
             this.items.push({
@@ -76,8 +77,7 @@ class CartService {
         }
 
         await this.saveCart();
-        const msg = isAmharic ? `"${displayTitle}" ወደ ሳጥን ተጨምረዋል! 🛒` : `"${product.title}" added to cart! 🛒`;
-        toast.success(msg);
+        toast.success(t('toast_cart_added'));
         return this.items;
     }
 
@@ -85,13 +85,15 @@ class CartService {
         if (!this.loaded) await this.loadCart();
 
         const index = this.items.findIndex(i => i.productId === productId);
+        const t = (k, p) => window.i18n ? window.i18n.t(k, p) : k;
+
         if (index >= 0) {
             if (quantity <= 0) {
                 return await this.removeItem(productId);
             }
             if (quantity > this.items[index].stock) {
                 quantity = this.items[index].stock;
-                toast.warning('Maximum stock reached.');
+                toast.warning(t('products_low_stock', { count: quantity }));
             }
             this.items[index].quantity = quantity;
             await this.saveCart();
@@ -104,10 +106,10 @@ class CartService {
 
         const index = this.items.findIndex(i => i.productId === productId);
         if (index >= 0) {
-            const removedTitle = this.items[index].title;
             this.items.splice(index, 1);
             await this.saveCart();
-            toast.info(`"${removedTitle}" removed from cart.`);
+            const t = (k) => window.i18n ? window.i18n.t(k) : k;
+            toast.info(t('toast_cart_removed'));
         }
         return this.items;
     }

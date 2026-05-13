@@ -68,7 +68,8 @@ class WishlistPage {
 
     render() {
         const container = document.getElementById('wishlist-content');
-        
+        const t = (k) => window.i18n ? window.i18n.t(k) : k;
+
         if (this.wishlistService.wishlist.length === 0) {
             container.innerHTML = `
                 <div class="col-12">
@@ -76,29 +77,34 @@ class WishlistPage {
                         <div class="empty-wishlist-icon">
                             <i class="bi bi-heart"></i>
                         </div>
-                        <h3>Your Wishlist is Empty</h3>
-                        <p class="text-muted">Start adding products you love to your wishlist!</p>
+                        <h3>${t('cart_empty_title')}</h3>
+                        <p class="text-muted">${t('cart_empty_desc')}</p>
                         <a href="products.html" class="btn btn-primary btn-lg">
-                            <i class="bi bi-bag-heart me-2"></i>Browse Products
+                            <i class="bi bi-bag-heart me-2"></i>${t('cart_browse_products')}
                         </a>
                     </div>
                 </div>`;
             return;
         }
 
-        const wishlistHTML = this.wishlistService.wishlist.map(product => `
+        const wishlistHTML = this.wishlistService.wishlist.map(product => {
+            const isAmharic = window.i18n?.getCurrentLanguage() === 'am';
+            const title = (isAmharic && product.titleAm) ? product.titleAm : product.title;
+            const description = (isAmharic && product.descriptionAm) ? product.descriptionAm : product.description;
+
+            return `
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card h-100">
                     <div class="card-img-wrapper">
-                        <img src="${product.imageURL}" alt="${product.title}" class="img-fluid">
+                        <img src="${product.imageURL}" alt="${title}" class="img-fluid">
                         <button class="btn btn-sm btn-outline-danger position-absolute top-0 end-0 m-2" 
                                 onclick="wishlistPage.removeFromWishlist('${product.id}')">
                             <i class="bi bi-heart-fill"></i>
                         </button>
                     </div>
                     <div class="card-body">
-                        <h6 class="card-title">${product.title}</h6>
-                        <p class="card-text text-muted small">${product.description ? product.description.substring(0, 80) + '...' : ''}</p>
+                        <h6 class="card-title">${title}</h6>
+                        <p class="card-text text-muted small">${description ? description.substring(0, 80) + '...' : ''}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="fw-bold text-primary">ETB ${product.price.toFixed(2)}</span>
                             <button class="btn btn-sm btn-primary" 
@@ -108,8 +114,8 @@ class WishlistPage {
                         </div>
                     </div>
                 </div>
-            </div>
-        `).join('');
+            </div>`;
+        }).join('');
 
         container.innerHTML = `
             <div class="row g-4">
@@ -121,12 +127,12 @@ class WishlistPage {
     removeFromWishlist(productId) {
         this.wishlistService.removeFromWishlist(productId);
         this.render();
-        toast.success('Product removed from wishlist!');
+        toast.success(window.i18n.t('toast_wishlist_removed'));
     }
 
     async addToCart(productId) {
         if (!authService.isLoggedIn()) {
-            toast.warning('Please login to add products to cart.');
+            toast.warning(window.i18n.t('toast_login_required'));
             setTimeout(() => {
                 window.location.href = 'login.html?redirect=cart.html';
             }, 1000);
@@ -136,7 +142,7 @@ class WishlistPage {
         const product = this.wishlistService.wishlist.find(p => p.id === productId);
         if (product) {
             await cartService.addItem(product);
-            toast.success('Product added to cart!');
+            toast.success(window.i18n.t('toast_cart_added'));
         }
     }
 }

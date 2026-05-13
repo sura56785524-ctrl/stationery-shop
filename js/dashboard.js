@@ -12,7 +12,7 @@ class DashboardPage {
     async init() {
         await authService.onAuthReady();
         if (!authService.isLoggedIn()) {
-            toast.warning('Please login to access your dashboard.');
+            toast.warning(window.i18n.t('toast_login_required'));
             setTimeout(() => { window.location.href = 'login.html?redirect=dashboard.html'; }, 1000);
             return;
         }
@@ -24,7 +24,7 @@ class DashboardPage {
 
     renderHeader() {
         const userData = authService.currentUserData;
-        document.getElementById('dash-user-name').textContent = userData?.name || 'User';
+        document.getElementById('dash-user-name').textContent = userData?.name || (window.i18n ? window.i18n.t('user') : 'User');
         document.getElementById('dash-user-email').textContent = authService.currentUser.email;
         const avatarWrap = document.querySelector('.dashboard-avatar');
         if (avatarWrap) {
@@ -46,6 +46,7 @@ class DashboardPage {
         const totalSpent = this.orders.reduce((sum, o) => o.status !== 'cancelled' ? sum + (o.totalPrice || 0) : sum, 0);
         const totalOrders = this.orders.length;
         const pendingOrders = this.orders.filter(o => o.status === 'pending' || o.status === 'processing').length;
+        const t = (k, p) => window.i18n ? window.i18n.t(k, p) : k;
 
         content.innerHTML = `
             <!-- Stats -->
@@ -54,7 +55,7 @@ class DashboardPage {
                     <div class="dashboard-stat-card" style="border-left-color:var(--primary);">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <div class="stat-label mb-1">Total Orders</div>
+                                <div class="stat-label mb-1">${t('dashboard_total_orders')}</div>
                                 <div class="stat-value">${totalOrders}</div>
                             </div>
                             <div class="dashboard-stat-icon bg-primary-soft text-primary">
@@ -67,7 +68,7 @@ class DashboardPage {
                     <div class="dashboard-stat-card" style="border-left-color:var(--success);">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <div class="stat-label mb-1">Total Spent</div>
+                                <div class="stat-label mb-1">${t('dashboard_total_spent')}</div>
                                 <div class="stat-value">ETB ${totalSpent.toFixed(2)}</div>
                             </div>
                             <div class="dashboard-stat-icon bg-success-soft text-success">
@@ -80,7 +81,7 @@ class DashboardPage {
                     <div class="dashboard-stat-card" style="border-left-color:var(--warning);">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <div class="stat-label mb-1">Pending</div>
+                                <div class="stat-label mb-1">${t('dashboard_pending')}</div>
                                 <div class="stat-value">${pendingOrders}</div>
                             </div>
                             <div class="dashboard-stat-icon bg-warning-soft" style="color:var(--warning);">
@@ -95,12 +96,12 @@ class DashboardPage {
                 <!-- Orders Section -->
                 <div class="col-lg-8">
                     <div class="dashboard-card">
-                        <h5 class="fw-bold mb-3"><i class="bi bi-receipt me-2"></i>My Orders</h5>
+                        <h5 class="fw-bold mb-3"><i class="bi bi-receipt me-2"></i>${t('dashboard_my_orders')}</h5>
                         ${this.orders.length === 0 ? `
                             <div class="text-center py-4">
                                 <i class="bi bi-bag-x fs-1 text-muted d-block mb-2"></i>
-                                <p class="text-muted">No orders yet.</p>
-                                <a href="products.html" class="btn btn-primary btn-sm">Start Shopping</a>
+                                <p class="text-muted">${t('dashboard_no_orders')}</p>
+                                <a href="products.html" class="btn btn-primary btn-sm">${t('dashboard_start_shopping')}</a>
                             </div>
                         ` : this.orders.map(order => this.renderOrderCard(order)).join('')}
                     </div>
@@ -109,51 +110,51 @@ class DashboardPage {
                 <!-- Profile Section -->
                 <div class="col-lg-4">
                     <div class="dashboard-card mb-4">
-                        <h5 class="fw-bold mb-3"><i class="bi bi-cart3 me-2"></i>Cart Overview</h5>
+                        <h5 class="fw-bold mb-3"><i class="bi bi-cart3 me-2"></i>${t('dashboard_cart_overview')}</h5>
                         <div class="d-flex justify-content-between mb-2">
-                            <span class="text-muted small">Items in Cart</span>
+                            <span class="text-muted small">${t('dashboard_items_in_cart')}</span>
                             <span class="fw-semibold">${cartService.getItemCount()}</span>
                         </div>
                         <div class="d-flex justify-content-between mb-3">
-                            <span class="text-muted small">Current Total</span>
+                            <span class="text-muted small">${t('dashboard_current_total')}</span>
                             <span class="fw-semibold">ETB ${cartService.getTotal().toFixed(2)}</span>
                         </div>
                         <a href="cart.html" class="btn btn-outline-primary w-100 btn-sm">
-                            <i class="bi bi-arrow-right-circle me-1"></i>Go to Cart
+                            <i class="bi bi-arrow-right-circle me-1"></i>${t('dashboard_go_to_cart')}
                         </a>
                     </div>
 
                     <div class="dashboard-card mb-4">
-                        <h5 class="fw-bold mb-3"><i class="bi bi-person-gear me-2"></i>Profile</h5>
+                        <h5 class="fw-bold mb-3"><i class="bi bi-person-gear me-2"></i>${t('dashboard_profile')}</h5>
                         <form id="profile-form">
                             <div class="mb-3">
-                                <label class="form-label">Full Name</label>
+                                <label class="form-label">${t('full_name')}</label>
                                 <input type="text" class="form-control" id="prof-name" 
                                        value="${authService.currentUserData?.name || ''}">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Phone</label>
+                                <label class="form-label">${t('phone_number')}</label>
                                 <input type="tel" class="form-control" id="prof-phone" 
                                        value="${authService.currentUserData?.phone || ''}">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Address</label>
+                                <label class="form-label">${t('shipping_address')}</label>
                                 <textarea class="form-control" id="prof-address" rows="2">${authService.currentUserData?.address || ''}</textarea>
                             </div>
                             <button type="button" class="btn btn-primary w-100" onclick="dashboardPage.updateProfile()">
-                                <i class="bi bi-check-circle me-1"></i>Update Profile
+                                <i class="bi bi-check-circle me-1"></i>${t('dashboard_update_profile')}
                             </button>
                         </form>
                     </div>
 
                     <div class="dashboard-card">
-                        <h5 class="fw-bold mb-3"><i class="bi bi-shield-lock me-2"></i>Account</h5>
+                        <h5 class="fw-bold mb-3"><i class="bi bi-shield-lock me-2"></i>${t('dashboard_account')}</h5>
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
+                            <label class="form-label">${t('email')}</label>
                             <input type="email" class="form-control" id="acc-email" value="${authService.currentUser.email || ''}">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Profile Image</label>
+                            <label class="form-label">${t('dashboard_profile_image')}</label>
                             <div class="d-flex align-items-center gap-3 mb-2">
                                 <div class="dashboard-avatar dashboard-avatar-preview" id="acc-avatar-preview">
                                     ${authService.currentUserData?.avatar
@@ -162,25 +163,25 @@ class DashboardPage {
                                 </div>
                                 <div class="flex-grow-1">
                                     <input type="file" class="form-control" id="acc-avatar-file" accept="image/*" onchange="dashboardPage.handleAvatarFileChange(event)">
-                                    <div class="form-text">Choose image from your device (max 2MB).</div>
+                                    <div class="form-text">${t('dashboard_choose_image')}</div>
                                 </div>
                             </div>
-                            <input type="url" class="form-control" id="acc-avatar" placeholder="Or paste image URL (optional)" value="${authService.currentUserData?.avatar || ''}">
+                            <input type="url" class="form-control" id="acc-avatar" placeholder="${t('dashboard_image_url_placeholder')}" value="${authService.currentUserData?.avatar || ''}">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Current Password</label>
-                            <input type="password" class="form-control" id="acc-current-password" placeholder="Required if changing password">
+                            <label class="form-label">${t('dashboard_current_password')}</label>
+                            <input type="password" class="form-control" id="acc-current-password" placeholder="${t('dashboard_current_password_placeholder')}">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">New Password</label>
-                            <input type="password" class="form-control" id="acc-new-password" placeholder="Leave blank to keep current password">
+                            <label class="form-label">${t('dashboard_new_password')}</label>
+                            <input type="password" class="form-control" id="acc-new-password" placeholder="${t('dashboard_new_password_placeholder')}">
                         </div>
                         <p class="small text-muted mb-3">Role: ${authService.currentUserData?.role || 'customer'}</p>
                         <button class="btn btn-primary w-100 mb-2" onclick="dashboardPage.updateAccountSettings()">
-                            <i class="bi bi-check2-circle me-1"></i>Save Account Settings
+                            <i class="bi bi-check2-circle me-1"></i>${t('dashboard_save_account')}
                         </button>
                         <button class="btn btn-outline-danger w-100" onclick="authService.logout()">
-                            <i class="bi bi-box-arrow-right me-1"></i>Logout
+                            <i class="bi bi-box-arrow-right me-1"></i>${t('nav_logout')}
                         </button>
                     </div>
                 </div>
@@ -188,11 +189,13 @@ class DashboardPage {
     }
 
     renderOrderCard(order) {
-        const date = order.createdAt ? new Date(order.createdAt).toLocaleDateString('en-US', {
+        const isAmharic = window.i18n?.getCurrentLanguage() === 'am';
+        const date = order.createdAt ? new Date(order.createdAt).toLocaleDateString(isAmharic ? 'am-ET' : 'en-US', {
             year: 'numeric', month: 'short', day: 'numeric'
         }) : 'N/A';
 
         const itemCount = order.items ? order.items.reduce((sum, i) => sum + i.quantity, 0) : 0;
+        const t = (k, p) => window.i18n ? window.i18n.t(k, p) : k;
 
         return `
         <div class="order-card">
@@ -201,10 +204,10 @@ class DashboardPage {
                     <div class="fw-bold small">${order.orderId || 'ORD-???'}</div>
                     <div class="text-muted" style="font-size:0.8rem;">${date}</div>
                 </div>
-                <span class="order-status ${order.status}">${order.status}</span>
+                <span class="order-status ${order.status}">${t(order.status) || order.status}</span>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-                <div class="text-muted small">${itemCount} item${itemCount !== 1 ? 's' : ''}</div>
+                <div class="text-muted small">${t('cart_items_in_cart', { count: itemCount, plural: itemCount !== 1 ? 's' : '' })}</div>
                 <div class="fw-bold text-primary">ETB ${(order.totalPrice || 0).toFixed(2)}</div>
             </div>
             ${order.items ? `
@@ -212,7 +215,7 @@ class DashboardPage {
                 ${order.items.slice(0, 4).map(item => `
                     <img src="${item.imageURL}" alt="" style="width:35px;height:35px;border-radius:4px;object-fit:cover;">
                 `).join('')}
-                ${order.items.length > 4 ? `<span class="badge bg-light text-dark align-self-center">+${order.items.length - 4}</span>` : ''}
+                ${order.items.length > 4 ? `<span class="badge badge-theme align-self-center">+${order.items.length - 4}</span>` : ''}
             </div>` : ''}
         </div>`;
     }
@@ -223,7 +226,7 @@ class DashboardPage {
         const address = document.getElementById('prof-address').value.trim();
 
         if (!name) {
-            toast.warning('Name cannot be empty.');
+            toast.warning(window.i18n.t('toast_fill_required'));
             return;
         }
 
@@ -234,9 +237,9 @@ class DashboardPage {
             authService.currentUserData.address = address;
             authService.updateNavbar();
             this.renderHeader();
-            toast.success('Profile updated successfully! ✅');
+            toast.success(window.i18n.t('toast_profile_updated'));
         } else {
-            toast.error('Failed to update profile.');
+            toast.error(window.i18n.t('error_message'));
         }
     }
 
@@ -247,12 +250,12 @@ class DashboardPage {
         const newPassword = document.getElementById('acc-new-password').value;
 
         if (!email) {
-            toast.warning('Email cannot be empty.');
+            toast.warning(window.i18n.t('toast_fill_required'));
             return;
         }
 
         if (newPassword && newPassword.length < 6) {
-            toast.warning('New password must be at least 6 characters.');
+            toast.warning(window.i18n.t('password_weak'));
             return;
         }
 
@@ -264,7 +267,7 @@ class DashboardPage {
 
         const result = await DatabaseService.updateAccountSettings(authService.getUID(), payload);
         if (!result.success) {
-            toast.error(result.error || 'Failed to update account settings.');
+            toast.error(result.error || window.i18n.t('error_message'));
             return;
         }
 
@@ -275,19 +278,19 @@ class DashboardPage {
         this.renderHeader();
         document.getElementById('acc-current-password').value = '';
         document.getElementById('acc-new-password').value = '';
-        toast.success('Account settings updated successfully! ✅');
+        toast.success(window.i18n.t('toast_account_updated'));
     }
 
     handleAvatarFileChange(event) {
         const file = event.target.files && event.target.files[0];
         if (!file) return;
         if (!file.type.startsWith('image/')) {
-            toast.warning('Please choose an image file.');
+            toast.warning(window.i18n.t('toast_invalid_image'));
             event.target.value = '';
             return;
         }
         if (file.size > 2 * 1024 * 1024) {
-            toast.warning('Image must be 2MB or smaller.');
+            toast.warning(window.i18n.t('toast_image_too_large'));
             event.target.value = '';
             return;
         }

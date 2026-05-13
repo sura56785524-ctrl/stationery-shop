@@ -34,7 +34,7 @@ class ToastManager {
         const bgClasses = {
             success: 'bg-success',
             error: 'bg-danger',
-            warning: 'bg-warning text-dark',
+            warning: 'bg-warning',
             info: 'bg-primary'
         };
 
