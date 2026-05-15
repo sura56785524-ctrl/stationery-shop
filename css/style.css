@@ -35,7 +35,7 @@
     --body-bg: #F8FAFC;
     --card-bg: #FFFFFF;
     --navbar-bg: #FFFFFF;
-    --footer-bg: #0F172A;
+    --footer-bg: #F1F5F9;
     --hero-bg: linear-gradient(135deg, #EEF2FF 0%, #FEF3C7 100%);
     --text-main: #1E293B;
     --text-muted: #64748B;
@@ -60,18 +60,20 @@
     --font-amharic: 'Noto Sans Ethiopic', 'Inter', sans-serif;
     --navbar-scrolled-bg: rgba(255, 255, 255, 0.98);
     --site-bg-overlay: rgba(248, 250, 252, 0.86);
+    --modal-bg: #FFFFFF;
+    --modal-header-bg: #F1F5F9;
 }
 
 [data-theme="dark"] {
-    --body-bg: #020617;
-    --card-bg: #0f172a;
-    --navbar-bg: #0f172a;
-    --footer-bg: #020617;
+    --body-bg: #020617; /* Slate-950 */
+    --card-bg: #0f172a; /* Slate-900 */
+    --navbar-bg: #0f172a; /* Slate-900 */
+    --footer-bg: #020617; /* Slate-950 */
     --hero-bg: linear-gradient(135deg, #020617 0%, #0f172a 100%);
-    --text-main: #f1f5f9;
-    --text-muted: #94a3b8;
-    --text-heading: #f8fafc;
-    --border-color: #1e293b;
+    --text-main: #f1f5f9; /* Slate-100 */
+    --text-muted: #94a3b8; /* Slate-400 */
+    --text-heading: #f8fafc; /* Slate-50 */
+    --border-color: #1e293b; /* Slate-800 */
     --input-bg: #0f172a;
     --white: #f8fafc;
     --gray-50: #0f172a;
@@ -84,13 +86,15 @@
     --gray-700: #f1f5f9;
     --gray-800: #f8fafc;
     --gray-900: #ffffff;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px -1px rgba(0, 0, 0, 0.35);
-    --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 12px 18px -6px rgba(0, 0, 0, 0.45);
-    --shadow-xl: 0 20px 28px -8px rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px -1px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 12px 18px -6px rgba(0, 0, 0, 0.7);
+    --shadow-xl: 0 20px 28px -8px rgba(0, 0, 0, 0.8);
     --navbar-scrolled-bg: rgba(2, 6, 23, 0.95);
     --site-bg-overlay: rgba(2, 6, 23, 0.85);
+    --modal-bg: #0f172a;
+    --modal-header-bg: #1e293b;
 }
 
 /* ============================================================
@@ -1642,7 +1646,7 @@ h1, h2, h3, h4, h5, h6 {
    15. MODAL STYLES
    ============================================================ */
 .modal-content {
-    background: var(--card-bg);
+    background: var(--modal-bg);
     color: var(--text-main);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
@@ -1653,7 +1657,7 @@ h1, h2, h3, h4, h5, h6 {
 .modal-header {
     border-bottom: 1px solid var(--border-color);
     padding: 1.25rem 1.5rem;
-    background: var(--gray-100);
+    background: var(--modal-header-bg);
 }
 
 .modal-header .modal-title {
@@ -1679,7 +1683,7 @@ h1, h2, h3, h4, h5, h6 {
 .modal-footer {
     border-top: 1px solid var(--border-color);
     padding: 1rem 1.5rem;
-    background: var(--gray-100);
+    background: var(--modal-header-bg);
 }
 
 .modal-backdrop.show {
@@ -1732,17 +1736,19 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5rem 0 0;
     margin-top: auto;
     border-top: 1px solid var(--border-color);
+    transition: var(--transition);
+    position: relative;
 }
 
 .site-footer .footer-brand {
     font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: var(--text-heading) !important;
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: var(--primary) !important;
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
 .site-footer .footer-brand i {
@@ -1763,25 +1769,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-footer .footer-social a {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: var(--gray-100);
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius);
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-main);
-    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-size: 1.15rem;
     transition: var(--transition);
 }
 
 .site-footer .footer-social a:hover {
     background: var(--primary);
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     border-color: var(--primary);
-    transform: translateY(-4px) rotate(8deg);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
 }
 
 .site-footer h6 {
@@ -1859,13 +1865,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-bottom {
     border-top: 1px solid var(--border-color);
-    padding: 1.5rem 0;
+    padding: 2rem 0;
     margin-top: 4rem;
-    background: rgba(0,0,0,0.02);
+    background: rgba(0, 0, 0, 0.02);
 }
 
 [data-theme="dark"] .footer-bottom {
-    background: rgba(255,255,255,0.01);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .footer-bottom p {
@@ -1896,12 +1902,13 @@ h1, h2, h3, h4, h5, h6 {
    17. ABOUT PAGE
    ============================================================ */
 .about-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: #FFFFFF;
+    background: var(--hero-bg);
+    color: var(--text-main);
     padding: 5rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .about-hero::before {
@@ -1916,7 +1923,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about-hero h1 {
-    color: #FFFFFF;
+    color: var(--text-heading);
     font-size: 3rem;
     font-weight: 900;
 }
@@ -1924,7 +1931,7 @@ h1, h2, h3, h4, h5, h6 {
 .about-hero p {
     max-width: 600px;
     margin: 1rem auto 0;
-    opacity: 0.85;
+    color: var(--text-muted);
     font-size: 1.1rem;
 }
 
@@ -1969,6 +1976,12 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     font-size: 2rem;
     margin: 0 auto 1.25rem;
+    background: var(--primary-50);
+    color: var(--primary);
+}
+
+[data-theme="dark"] .about-value-icon {
+    background: var(--gray-100);
 }
 
 .team-card {

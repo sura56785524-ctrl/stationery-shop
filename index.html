@@ -558,7 +558,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html" data-i18n="nav_home">Home</a></li>
                         <li><a href="products.html" data-i18n="nav_products">Products</a></li>
-                        <li><a href="about.html" data-i18n="nav_about">About Us</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">About</a></li>
                         <li><a href="cart.html" data-i18n="nav_cart">Cart</a></li>
                     </ul>
                 </div>
@@ -580,22 +580,24 @@
                         </li>
                         <li>
                             <i class="bi bi-telephone"></i>
-                            <span>+251956785524</span>
+                            <span data-i18n="footer_phone">+251956785524</span>
                         </li>
                         <li>
                             <i class="bi bi-envelope"></i>
-                            <span>sura56785524@gmail.com</span>
+                            <span data-i18n="footer_email">sura56785524@gmail.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap gap-3">
-                <p data-i18n="footer_copyright">&copy; 2026 SmartStationery. All rights reserved.</p>
-                <div class="payment-icons">
-                    <i class="bi bi-credit-card-2-front"></i>
-                    <i class="bi bi-paypal"></i>
-                    <i class="bi bi-stripe"></i>
-                    <i class="bi bi-wallet2"></i>
+            <div class="footer-bottom">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                    <p data-i18n="footer_copyright">&copy; 2026 SmartStationery. All rights reserved.</p>
+                    <div class="payment-icons">
+                        <i class="bi bi-credit-card-2-front"></i>
+                        <i class="bi bi-paypal"></i>
+                        <i class="bi bi-stripe"></i>
+                        <i class="bi bi-wallet2"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -719,8 +721,10 @@
                                 <button class="action-btn" onclick="homePage.viewProduct('${product.id}')" title="${window.i18n.t('quick_view')}">
                                     <i class="bi bi-eye"></i>
                                 </button>
-                                <button class="action-btn" onclick="homePage.addToWishlist('${product.id}')" title="${window.i18n.t('wishlist')}">
-                                    <i class="bi bi-heart"></i>
+                                <button class="action-btn ${wishlistService.isInWishlist(product.id) ? 'wishlist-active' : ''}"
+                                        onclick="homePage.addToWishlist('${product.id}')"
+                                        title="${wishlistService.isInWishlist(product.id) ? window.i18n.t('products_remove_wishlist') : window.i18n.t('products_add_wishlist')}">
+                                    <i class="bi ${wishlistService.isInWishlist(product.id) ? 'bi-heart-fill' : 'bi-heart'}"></i>
                                 </button>
                             </div>
                         </div>
@@ -807,8 +811,9 @@
                                     <button class="btn btn-primary flex-grow-1" onclick="homePage.addToCart('${product.id}');bootstrap.Modal.getInstance(document.getElementById('productDetailModal')).hide();">
                                         <i class="bi bi-cart-plus"></i> ${window.i18n.t('add_to_cart')}
                                     </button>
-                                    <button class="btn btn-outline-primary btn-icon" onclick="homePage.addToWishlist('${product.id}')">
-                                        <i class="bi bi-heart"></i>
+                                    <button class="btn btn-outline-primary btn-icon ${wishlistService.isInWishlist(product.id) ? 'wishlist-active' : ''}"
+                                            onclick="homePage.addToWishlist('${product.id}')">
+                                        <i class="bi ${wishlistService.isInWishlist(product.id) ? 'bi-heart-fill' : 'bi-heart'}"></i>
                                     </button>
                                 </div>
                             </div>
@@ -822,10 +827,15 @@
                 if (result.success) {
                     const product = result.data;
                     if (wishlistService.addToWishlist(product)) {
-                        toast.success('Product added to wishlist! ❤️');
+                        toast.success(window.i18n.t('toast_wishlist_added'));
                     } else {
-                        toast.info('Product already in wishlist!');
+                        toast.info(window.i18n.t('toast_wishlist_removed'));
                     }
+                    this.loadFeaturedProducts();
+                    this.loadTrendingProducts();
+
+                    // If modal is open, we might need to re-render it too, but let's keep it simple
+                    // for the toggle action in cards.
                 }
             }
         }
