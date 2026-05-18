@@ -123,7 +123,7 @@ class AdminPage {
                             <div>
                                 <div class="stat-label">${t('admin_total_revenue')}</div>
                                 <div class="stat-value">ETB ${totalRevenue.toFixed(2)}</div>
-                                <div class="stat-change text-success"><i class="bi bi-graph-up-arrow"></i> From ${this.orders.length} ${t('admin_orders')}</div>
+                                <div class="stat-change text-success"><i class="bi bi-graph-up-arrow"></i> ${this.orders.length} ${t('admin_orders')}</div>
                             </div>
                             <div class="stat-icon bg-success-soft text-success">
                                 <i class="bi bi-currency-exchange"></i>
@@ -526,7 +526,7 @@ class AdminPage {
                 <div class="table-responsive">
                     <table class="admin-table">
                         <thead>
-                            <tr><th>${t('admin_customer')}</th><th>${t('email')}</th><th>Role</th><th>${t('phone_number')}</th><th>Joined</th><th>${t('admin_actions')}</th></tr>
+                            <tr><th>${t('admin_customer')}</th><th>${t('email')}</th><th>${t('role')}</th><th>${t('phone_number')}</th><th>${t('admin_date')}</th><th>${t('admin_actions')}</th></tr>
                         </thead>
                         <tbody>
                             ${this.users.map(user => {
@@ -545,7 +545,7 @@ class AdminPage {
                                     <td class="small">${user.email}</td>
                                     <td>
                                         <span class="badge ${user.role === 'admin' ? 'bg-primary' : 'badge-theme'}">
-                                            ${user.role || 'customer'}
+                                            ${t(user.role) || user.role || t('customer')}
                                         </span>
                                     </td>
                                     <td class="small text-muted">${user.phone || 'N/A'}</td>

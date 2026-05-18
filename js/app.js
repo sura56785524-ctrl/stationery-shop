@@ -196,7 +196,7 @@ class SiteAssistant {
             </button>
             <div class="assistant-panel d-none" id="assistant-panel">
                 <div class="assistant-header">
-                    <div class="assistant-title"><i class="bi bi-stars"></i> InkSpire AI Assistant</div>
+                    <div class="assistant-title" data-i18n="assistant_title"><i class="bi bi-stars"></i> InkSpire AI Assistant</div>
                     <button type="button" class="assistant-close" id="assistant-close" aria-label="Close">
                         <i class="bi bi-x-lg"></i>
                     </button>
@@ -399,9 +399,7 @@ class SiteAssistant {
                 const title = (isAmharic && p.titleAm) ? p.titleAm : p.title;
                 return `${title} (ETB ${Number(p.price || 0).toFixed(2)})`;
             });
-            return isAmharic
-                ? `እነዚህን ምርቶች አግኝቻለሁ: ${lines.join(', ')}። ለሙሉ ዝርዝር የምርቶች ገጽን ይክፈቱ።`
-                : `I found products that may match: ${lines.join(', ')}. Open the Products page and search these names for full details.`;
+            return t('assistant_product_match', { list: lines.join(', ') });
         }
 
         if (question.includes('contact') || question.includes('phone') || question.includes('email')) {

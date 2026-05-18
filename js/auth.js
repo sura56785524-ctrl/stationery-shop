@@ -113,7 +113,7 @@ class AuthService {
 
     async resetPassword(email) {
         try {
-            toast.info('Password reset is not enabled in this build yet.');
+            toast.info(window.i18n.t('toast_password_reset_not_enabled'));
             return { success: true };
         } catch (error) {
             console.error('Password reset error:', error);

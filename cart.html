@@ -112,7 +112,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html" data-i18n="nav_home">Home</a></li>
                         <li><a href="products.html" data-i18n="nav_products">Products</a></li>
-                        <li><a href="about.html" data-i18n="nav_about">About Us</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">About</a></li>
                         <li><a href="cart.html" data-i18n="nav_cart">Cart</a></li>
                     </ul>
                 </div>
@@ -134,16 +134,16 @@
                         </li>
                         <li>
                             <i class="bi bi-telephone"></i>
-                            <span>+251956785524</span>
+                            <span data-i18n="footer_phone">+251956785524</span>
                         </li>
                         <li>
                             <i class="bi bi-envelope"></i>
-                            <span>sura56785524@gmail.com</span>
+                            <span data-i18n="footer_email">sura56785524@gmail.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div class="footer-bottom">
                 <p data-i18n="footer_copyright">&copy; 2026 SmartStationery. All rights reserved.</p>
                 <div class="payment-icons">
                     <i class="bi bi-credit-card-2-front"></i>
@@ -308,16 +308,17 @@
             }
 
             async clearCart() {
-                if (confirm('Are you sure you want to clear your entire cart?')) {
+                const t = (k) => window.i18n ? window.i18n.t(k) : k;
+                if (confirm(t('confirm_clear_cart'))) {
                     await cartService.clearAllItems();
-                    toast.info('Cart has been cleared.');
+                    toast.info(t('toast_cart_cleared'));
                     this.render();
                 }
             }
 
             proceedToCheckout() {
                 if (!authService.isLoggedIn()) {
-                    toast.warning('Please login to proceed to checkout.');
+                    toast.warning(window.i18n.t('toast_login_proceed'));
                     setTimeout(() => {
                         window.location.href = 'login.html?redirect=' + encodeURIComponent('checkout.html');
                     }, 1000);

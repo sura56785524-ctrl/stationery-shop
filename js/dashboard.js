@@ -176,7 +176,7 @@ class DashboardPage {
                             <label class="form-label">${t('dashboard_new_password')}</label>
                             <input type="password" class="form-control" id="acc-new-password" placeholder="${t('dashboard_new_password_placeholder')}">
                         </div>
-                        <p class="small text-muted mb-3">Role: ${authService.currentUserData?.role || 'customer'}</p>
+                        <p class="small text-muted mb-3">${t('role')}: ${t(authService.currentUserData?.role) || authService.currentUserData?.role || t('customer')}</p>
                         <button class="btn btn-primary w-100 mb-2" onclick="dashboardPage.updateAccountSettings()">
                             <i class="bi bi-check2-circle me-1"></i>${t('dashboard_save_account')}
                         </button>

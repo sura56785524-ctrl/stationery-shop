@@ -83,21 +83,21 @@
                             <div class="position-relative">
                                 <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=600"
                                      alt="Our Story" class="img-fluid rounded-custom shadow-lg-custom">
-                                <div class="position-absolute bottom-0 end-0 bg-primary text-white p-3 rounded-custom shadow-lg d-none d-md-block" style="transform: translate(20px, 20px);">
+                                <div class="position-absolute bottom-0 end-0 bg-primary text-white p-3 rounded-custom shadow-lg-custom d-none d-md-block" style="transform: translate(20px, 20px);">
                                     <div class="h4 fw-bold mb-0">6+</div>
-                                    <div class="small" data-i18n="hero_stats_products">Years Experience</div>
+                                    <div class="small" data-i18n="hero_stats_years">Years Experience</div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <h2 class="section-title" data-i18n="about_mission_title">Our Mission</h2>
-                            <p class="mt-4" style="line-height:1.9; font-size: 1.1rem; color: var(--text-main);" data-i18n="about_mission_p1">
+                            <p class="mt-4" style="line-height:1.9; font-size: 1.1rem;" data-i18n="about_mission_p1">
                                 At SmartStationery, we believe that the right stationery can transform the way you
                                 think, create, and express yourself. Our mission is to provide high-quality,
                                 beautifully designed stationery and art supplies that inspire creativity in
                                 everyone — from students and professionals to artists and journalers.
                             </p>
-                            <p class="mt-3" style="line-height:1.9; color: var(--text-muted);" data-i18n="about_mission_p2">
+                            <p class="mt-3" style="line-height:1.9;" data-i18n="about_mission_p2">
                                 We carefully curate products from the world's most trusted brands and emerging
                                 artisans, ensuring every item in our shop meets our standards of quality,
                                 sustainability, and design excellence.
@@ -220,7 +220,7 @@
                             <div class="team-avatar bg-primary-soft d-flex align-items-center justify-content-center mx-auto" style="width:100px;height:100px;border-radius:50%;font-size:2rem;color:var(--primary);">
                                 <i class="bi bi-person"></i>
                             </div>
-                            <h6 class="mt-3 mb-1 fw-bold">SURAFEL ALEMU</h6>
+                            <h6 class="mt-3 mb-1 fw-bold" data-i18n="team_member1_name">SURAFEL ALEMU</h6>
                             <p class="text-muted small mb-2" data-i18n="role_founder">Founder & CEO</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -233,7 +233,7 @@
                             <div class="team-avatar bg-success-soft d-flex align-items-center justify-content-center mx-auto" style="width:100px;height:100px;border-radius:50%;font-size:2rem;color:var(--success);">
                                 <i class="bi bi-person"></i>
                             </div>
-                            <h6 class="mt-3 mb-1 fw-bold">AJIBEW ABEBE</h6>
+                            <h6 class="mt-3 mb-1 fw-bold" data-i18n="team_member2_name">AJIBEW ABEBE</h6>
                             <p class="text-muted small mb-2" data-i18n="role_director">Creative Director</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -246,7 +246,7 @@
                             <div class="team-avatar bg-warning-soft d-flex align-items-center justify-content-center mx-auto" style="width:100px;height:100px;border-radius:50%;font-size:2rem;color:var(--secondary);">
                                 <i class="bi bi-person"></i>
                             </div>
-                            <h6 class="mt-3 mb-1 fw-bold">GENZEB DAGIM</h6>
+                            <h6 class="mt-3 mb-1 fw-bold" data-i18n="team_member3_name">GENZEB DAGIM</h6>
                             <p class="text-muted small mb-2" data-i18n="role_ops">Head of Operations</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="https://www.facebook.com/share/1Ca4As6qPV/" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -313,7 +313,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html" data-i18n="nav_home">Home</a></li>
                         <li><a href="products.html" data-i18n="nav_products">Products</a></li>
-                        <li><a href="about.html" data-i18n="nav_about">About Us</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">About</a></li>
                         <li><a href="cart.html" data-i18n="nav_cart">Cart</a></li>
                     </ul>
                 </div>
@@ -335,22 +335,24 @@
                         </li>
                         <li>
                             <i class="bi bi-telephone"></i>
-                            <span>+251956785524</span>
+                            <span data-i18n="footer_phone">+251956785524</span>
                         </li>
                         <li>
                             <i class="bi bi-envelope"></i>
-                            <span>sura56785524@gmail.com</span>
+                            <span data-i18n="footer_email">sura56785524@gmail.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap gap-3">
-                <p data-i18n="footer_copyright">&copy; 2026 SmartStationery. All rights reserved.</p>
-                <div class="payment-icons">
-                    <i class="bi bi-credit-card-2-front"></i>
-                    <i class="bi bi-paypal"></i>
-                    <i class="bi bi-stripe"></i>
-                    <i class="bi bi-wallet2"></i>
+            <div class="footer-bottom">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                    <p data-i18n="footer_copyright">&copy; 2026 SmartStationery. All rights reserved.</p>
+                    <div class="payment-icons">
+                        <i class="bi bi-credit-card-2-front"></i>
+                        <i class="bi bi-paypal"></i>
+                        <i class="bi bi-stripe"></i>
+                        <i class="bi bi-wallet2"></i>
+                    </div>
                 </div>
             </div>
         </div>

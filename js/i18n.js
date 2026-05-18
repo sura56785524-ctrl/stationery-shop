@@ -9,12 +9,6 @@ class I18n {
         this.translations = {
             en: {
                 // Navbar
-                nav_home: 'Home',
-                nav_products: 'Products',
-                nav_about: 'About',
-                nav_cart: 'Cart',
-                nav_login: 'Login',
-                nav_register: 'Register',
 
                 // Navigation
                 nav_home: 'Home',
@@ -109,6 +103,8 @@ class I18n {
                 checkout_cash_on_delivery_desc: 'Pay when you receive your order',
                 checkout_cbe_transfer: 'CBE Transfer',
                 checkout_telebirr: 'Telebirr',
+                account_number: 'Account Number',
+                telebirr_number: 'Telebirr Number',
                 
                 // Auth
                 login_welcome: 'Welcome Back!',
@@ -137,6 +133,9 @@ class I18n {
                 send_reset_link: 'Send Reset Link',
                 reset_email_desc: 'Enter your email address and we\'ll send you a password reset link.',
                 user: 'User',
+                role: 'Role',
+                admin: 'Admin',
+                customer: 'Customer',
                 
                 // General Messages
                 welcome: 'Welcome to SmartStationery',
@@ -149,28 +148,9 @@ class I18n {
 
                 // Additional Missing Keys
                 nav_brand: 'SmartStationery',
-                shop_by_category: 'Shop by Category',
-                shop_by_category_desc: 'Browse our carefully curated categories to find exactly what you need.',
-                best_seller: 'Best Seller',
-                featured_products_desc: 'Hand-picked favorites from our best sellers.',
-                trending_products_title: 'Trending Now 🔥',
-                trending_products_desc: 'What everyone is loving right now.',
-                view_all: 'View All',
-                newsletter_title_loop: 'Stay in the Loop ✉️',
-                newsletter_desc_loop: 'Subscribe for exclusive deals, new arrivals, and stationery inspiration.',
-                subscribe_btn: 'Subscribe',
-                quick_view: 'Quick View',
-                wishlist: 'Wishlist',
-                add_to_cart: 'Add to Cart',
-                reviews: 'reviews',
-                in_stock_msg: 'in stock',
-                out_of_stock_msg: 'Out of stock',
-                notebooks_count: '24+ Items',
-                pens_count: '36+ Items',
-                pencils_count: '18+ Items',
-                art_count: '42+ Items',
-                paper_count: '15+ Items',
-                organizers_count: '12+ Items',
+                quick_links: 'Quick Links',
+                categories: 'Categories',
+                contact_us: 'Contact Us',
                 dashboard_total_orders: 'Total Orders',
                 dashboard_total_spent: 'Total Spent',
                 dashboard_pending: 'Pending',
@@ -233,6 +213,10 @@ class I18n {
                 testimonial3_role: 'Watercolor Artist',
                 footer_description: 'Your one-stop shop for premium stationery, art supplies, and office essentials.',
                 footer_address: 'Piassa, Addis Ababa, Ethiopia',
+                footer_phone: '+251956785524',
+                footer_email: 'sura56785524@gmail.com',
+                footer_copyright: '© 2026 SmartStationery. All rights reserved.',
+                newsletter_placeholder: 'Enter your email address',
                 about_title: 'About SmartStationery',
                 about_hero_subtitle: 'Fueling creativity and productivity through premium stationery since 2026.',
                 about_mission_title: 'Our Mission',
@@ -268,6 +252,7 @@ class I18n {
                 map_title: 'Map',
 
                 // Assistant
+                assistant_title: 'InkSpire AI Assistant',
                 assistant_welcome: 'Hi! I am InkSpire Assistant — ask me anything about our products, delivery, payments, or your cart.',
                 assistant_placeholder: 'Ask a question — I use live catalog data…',
                 assistant_thinking: 'Thinking…',
@@ -334,16 +319,27 @@ class I18n {
                 toast_account_updated: 'Account settings updated successfully! ✅',
                 toast_logout_success: 'You have been logged out.',
                 toast_order_success: 'Your order has been placed successfully! 🎉',
-                assistant_fallback_network: 'Assistant could not reach the server — showing basic answers.'
+                toast_password_reset_not_enabled: 'Password reset is not enabled in this build yet.',
+                toast_login_checkout: 'Please login to checkout.',
+                toast_cart_empty: 'Your cart is empty.',
+                toast_cart_cleared: 'Cart has been cleared.',
+                toast_login_proceed: 'Please login to proceed to checkout.',
+                toast_fill_shipping: 'Please fill in all shipping fields.',
+                processing_btn: 'Processing...',
+                confirm_clear_cart: 'Are you sure you want to clear your entire cart?',
+                assistant_fallback_network: 'Assistant could not reach the server — showing basic answers.',
+                assistant_product_match: 'I found products that may match: {list}. Open the Products page and search these names for full details.',
+                error_place_order: 'Failed to place order. Please try again.',
+
+                // Newly Added Keys
+                hero_stats_years: 'Years Experience',
+                team_member1_name: 'SURAFEL ALEMU',
+                team_member2_name: 'AJIBEW ABEBE',
+                team_member3_name: 'GENZEB DAGIM',
+
             },
             am: {
                 // Navbar
-                nav_home: 'መነሻ',
-                nav_products: 'ምርቶች',
-                nav_about: 'ስለ እኛ',
-                nav_cart: 'ቅርጫት',
-                nav_login: 'ግባ',
-                nav_register: 'ተመዝገብ',
 
                 // Navigation
                 nav_home: 'መነሻ',
@@ -356,14 +352,9 @@ class I18n {
                 nav_dashboard: 'ዳሽቦርድ',
                 
                 // Common
-                loading: 'በማጠናቀቅ ላይ...',
                 error: 'ስህተት',
-                success: 'ተሳክቷል',
                 warning: 'ማንበቢያ',
                 info: 'መረጃ',
-                close: 'ዝጋ',
-                cancel: 'ይቅር',
-                save: 'አስቀምጥ',
                 edit: 'አርም',
                 delete: 'አጥፋ',
                 search: 'ፈልግ',
@@ -374,19 +365,16 @@ class I18n {
                 remove: 'አስወግድ',
                 update: 'አዘምን',
                 submit: 'ያስገቡ',
-                back: 'ወደ ኋላ',
-                next: 'ወደ ፊት',
-                previous: 'ያለፈው',
                 
                 // Products
                 products_title: 'የእኛ እቃዎች',
                 products_search_placeholder: 'እቃዎችን ይፈልጉ...',
                 products_filter_all: 'ሁሉም',
-                products_notebooks: 'የመጽሐፍ መዋቻዎች',
-                products_pens: 'እራሳዎች',
-                products_pencils: 'የእራሳ ዎች',
+                products_notebooks: 'ደብተሮች',
+                products_pens: 'እስክሪብቶዎች',
+                products_pencils: 'እርሳሶች',
                 products_art_supplies: 'የጥበብ እቃዎች',
-                products_paper: 'ወረታ',
+                products_paper: 'ወረቀቶች',
                 products_organizers: 'አሰልፍ ማስተኛዎች',
                 products_sort_newest: 'አዲስ',
                 products_sort_price_low: 'ዋጋ: ዝቅተኛ ከኃዲል',
@@ -397,64 +385,16 @@ class I18n {
                 products_no_results_desc: 'ፈልጎችን ይም ማጣሪያዎችን ይቀይሩ።',
                 products_reset_filters: 'ማጣሪያዎችን አድስር',
                 products_featured: 'የተመረጡ',
-                products_trending: 'የፈጎችም የሚውር',
-                products_sale: 'ሽውም',
-                products_in_stock: 'በርገት',
-                products_low_stock: 'ብቅ {count} ብቅ!',
-                products_out_of_stock: 'የተልት',
-                products_add_to_cart: 'ወደ ሳጥ መውጣት',
-                products_quick_view: 'ፈለማት መመልጣት',
-                products_add_wishlist: 'ወደ ሳጥ መውጣት',
-                products_remove_wishlist: 'ከሳጥ ወደ ሳጥ መውጣት',
                 
                 // Cart
-                cart_title: 'የግሽሳጥ ዝልጥ',
-                cart_empty_title: 'የግሽሳጥዎ ባልም',
-                cart_empty_desc: 'እንንም አለማይንም እንንም የምልጥት አልማይንም የለዝልጥት።',
-                cart_browse_products: 'እቃዎችንይምምንም ይፈማ',
-                cart_items_in_cart: '{count} እቃዎች',
-                cart_clear_all: 'ሁሉም አስው',
-                cart_order_summary: 'የትወማም ማክባ',
-                cart_free_shipping_applied: 'ነፊር አስይ ተርች!',
-                cart_add_more_for_free_shipping: 'ለለማት <strong>{amount}</strong> አስይ ተርች ነፊር አስይ ተርች',
-                cart_subtotal: 'የግሽሳጥ',
-                cart_tax: 'ታግስ (8%)',
-                cart_shipping: 'አስይ',
-                cart_total: 'ጠቅር',
-                cart_proceed_checkout: 'ወደ ሳጥ መፍጣት',
-                cart_continue_shopping: 'እቃዎችንይምምንም ይፈማ',
-                cart_removed: 'ከሳጥ ወደ ሳጥ መውጣት',
-                cart_added: 'ወደ ሳጥ መውጣት! 🛒',
                 
                 // Checkout
-                checkout_title: 'መፍጣት',
-                checkout_cart: 'የግሽሳጥ',
-                checkout_shipping_payment: 'አስይ እና ክፍያ',
-                checkout_confirmation: 'ማክባት',
-                checkout_shipping_address: 'አስይ እና',
-                checkout_payment_method: 'ክፍያ እና',
-                checkout_place_order: 'የትወማም ማክባ',
-                checkout_cash_on_delivery: 'ከደረን ተክች',
-                checkout_cash_on_delivery_desc: 'የትወማም ማክባ ተክች',
-                checkout_cbe_transfer: 'ኢቢኤ ትራርር',
-                checkout_telebirr: 'ቴሌቢብር',
                 
                 // Auth
                 login_welcome: 'እንኳን በደህና መጡ!',
                 login_subtitle: 'ለመቀጠል ወደ መለያዎ ይግቡ',
-                login_title: 'መግቢያ',
-                register_title: 'ምዝገባ',
                 register_welcome: 'መለያ ይፍጠሩ',
                 register_subtitle: 'የጽህፈት መሳሪያ ወዳጆችን ይቀላቀሉ',
-                email: 'የኢሜል አድራሻ',
-                password: 'የይለፍ ቃል',
-                confirm_password: 'የይለፍ ቃል ያረጋግጡ',
-                full_name: 'ሙሉ ስም',
-                phone_number: 'የስልክ ቁጥር',
-                remember_me: 'አስታውሰኝ',
-                forgot_password: 'የይለፍ ቃል ረሱ?',
-                already_have_account: 'መለያ አለዎት?',
-                dont_have_account: 'መለያ የለዎትም?',
                 create_one: 'አዲስ ይፍጠሩ',
                 sign_in: 'ግባ',
                 sign_up: 'ተመዝገብ',
@@ -466,41 +406,29 @@ class I18n {
                 send_reset_link: 'የመቀየሪያ ሊንክ ላክ',
                 reset_email_desc: 'የኢሜል አድራሻዎን ያስገቡ እና የይለፍ ቃል መቀየሪያ ሊንክ እንልክልዎታለን።',
                 user: 'ተጠቃሚ',
+                role: 'ሚና',
+                admin: 'አስተዳዳሪ',
+                customer: 'ደመበኛ',
                 city: 'ከተማ',
                 state: 'ክልል/ክፍለ ከተማ',
                 zip_code: 'የፖስታ ቁጥር',
                 street_address: 'የመንገድ አድራሻ',
                 
                 // General Messages
-                welcome: 'እንንም ደማሳተ SmartStationery',
-                thank_you: 'እንንም ደማሳተ',
-                success_message: 'ስርኣት ተርች!',
-                error_message: 'ስህተት ተርች። እንንም ይፈማ',
-                required_field: 'ይሚ ይምልጥ አስይ',
-                invalid_email: 'እሉክ ኢሜልል ያስው',
-                password_mismatch: 'የሚላግም አይምል',
                 
                 // Page Content
                 homepage_title: 'የማርተማ ገጽ',
                 homepage_welcome: 'እንንም ደማሳተ SmartStationery',
                 homepage_subtitle: 'የግልግ እቃዎች፣ የጥበብ እቃዎች፣ እና የመምርት እቃዎች',
-                featured_products: 'የተመረጡ እቃዎች',
-                trending_products: 'የፈጎችም የሚውር',
                 about_us: 'ስለ ኛች',
                 about_description: 'የኛች ታሪክ',
                 contact_us: 'አግኙን',
                 customer_service: '��ደንበኛ አገልግግስ',
                 
                 // Product Details
-                product_details: 'የእቃው ዝርዝር',
-                product_description: 'የእቃው መግለጫ',
                 product_price: 'ዋጋ',
                 product_original_price: '��ጋዋ',
                 product_discount: 'ቅናሽ',
-                product_category: 'ምድብ',
-                product_brand: 'ምርት',
-                product_rating: 'ደረጃ',
-                product_reviews: 'ግምልነቶች',
                 in_stock: 'በስቶክ ውስጥ',
                 out_of_stock: 'ከስቶክ ውጪ',
                 low_stock: 'ብቅ {count} ይቀራል!',
@@ -516,16 +444,13 @@ class I18n {
                 newsletter_title: 'በዱኛ ይታዉ',
                 newsletter_subtitle: 'ለልዩ የሚሆኑ ሽውማ፣ አዲስ እቃዎች፣ እና የግልግ ምርት',
                 newsletter_placeholder: 'የኢሜል አድራሽን ያስገቡ',
-                subscribe: 'ይታዉ',
                 
                 // Testimonials
                 testimonials: 'የደንበኛዎች ምልክት',
-                customer_reviews: 'የደንበኛዎች ግምልነቶች',
                 our_customers_say: 'ደንበኛዎች የሚሉዉ',
                 
                 // Footer
                 quick_links: 'ፈጣን አገናዎች',
-                categories: 'ምድቦች',
                 contact_info: 'የአግኙን መረጃ',
                 follow_us: 'ይከተሉን',
                 
@@ -535,7 +460,6 @@ class I18n {
                 admin_orders: 'የትወማም',
                 admin_users: 'ተርተማ',
                 admin_main: 'ዋና',
-                admin_actions: 'ተግባራት',
                 admin_view_store: 'እቃዎችንይም',
                 admin_add_product: 'እቃው ጨምር',
                 admin_edit_product: 'እቃውን አርም',
@@ -595,17 +519,24 @@ class I18n {
                 toast_account_updated: 'የመለያ ቅንብሮች በተሳካ ሁኔታ ተዘምነዋል! ✅',
                 toast_logout_success: 'ከመለያዎ ወጥተዋል።',
                 toast_order_success: 'ትዕዛዝዎ በተሳካ ሁኔታ ተቀምጧል! 🎉',
+                toast_password_reset_not_enabled: 'የይለፍ ቃል መቀየር በዚህ ስሪት ላይ ገና አልተካተተም።',
+                toast_login_checkout: 'እባክዎ ለመቀጠል ይግቡ።',
+                toast_cart_empty: 'ሳጥንዎ ባዶ ነው።',
+                toast_cart_cleared: 'ቅርጫቱ ጸድቷል።',
+                toast_login_proceed: 'እባክዎ ለመቀጠል ይግቡ።',
+                toast_fill_shipping: 'እባክዎ ሁሉንም የመላኪያ ቦታዎች ይሙሉ ።',
+                processing_btn: 'በማቀናበር ላይ...',
+                confirm_clear_cart: 'ሙሉ በሙሉ ቅርጫትዎን ማጽዳት ይፈልጋሉ?',
                 assistant_fallback_network: 'ረዳቱ አገልጋዩን ማግኘት አልቻለም — መሰረታዊ መልሶችን እያሳየ ነው።',
+                assistant_product_match: 'እነዚህን ምርቶች አግኝቻለሁ: {list}። ለሙሉ ዝርዝር የምርቶች ገጽን ይክፈቱ።',
+                error_place_order: 'ትዕዛዝ ማስቀመጥ አልተቻለም። እባክዎ እንደገና ይሞክሩ።',
                 
                 // Shopping Process
-                checkout: 'መፍጣት',
-                shipping_address: 'የአስይ አድራሻ',
+                account_number: 'የሂሳብ ቁጥር',
+                telebirr_number: 'የቴሌቢር ቁጥር',
                 payment_method: 'የክፍያ አይነታዊ',
                 place_order: 'የትወማም ማክባ',
                 order_summary: 'የትወማም ማክባ',
-                subtotal: 'የግሽሳጥ',
-                total: '��ቅር',
-                free_shipping: 'ነፊር አስይ',
                 shipping_cost: 'የአስይ ዋጋ',
                 
                 // Messages
@@ -615,7 +546,6 @@ class I18n {
                 item_removed_from_wishlist: 'እቃው ከፈለጌ ተወግድ',
                 login_required: 'መግቢያ ይፈለጋል',
                 please_login: 'እባክዎ መግቢያ ይፈለጋል',
-                processing: 'በማጠናቅ ላይ...',
                 success: 'ተሳክቷል!',
                 error_occurred: 'ስህተት ተፈጠረ። እንንም ይፈማ።',
                 products_trending: 'ተወዳጅ',
@@ -672,17 +602,6 @@ class I18n {
                 checkout_telebirr: 'ቴሌቢር',
                 
                 // Auth
-                login_title: 'መግቢያ',
-                register_title: 'ምዝገባ',
-                email: 'ኢሜይል',
-                password: 'የይለፍ ቃል',
-                confirm_password: 'የይለፍ ቃል ያረጋግጡ',
-                full_name: 'ሙሉ ስም',
-                phone_number: 'ስልክ ቁጥር',
-                remember_me: 'አሳስታልኝ',
-                forgot_password: 'የይለፍ ቃልዎን ረሳው?',
-                already_have_account: 'መለያ አለዎት?',
-                dont_have_account: 'መለያ የለዎትም?',
                 
                 // General Messages
                 welcome: 'ወደ SmartStationery እንኳን ደህና መጡ',
@@ -705,13 +624,11 @@ class I18n {
                 
                 // Features Section
                 feature_free_shipping: 'ነጻ መላክ',
-                feature_free_shipping_desc: 'ለሁሉም ትዥዛዞች ETB 2,750 እና ከዚያ በላይ ነጻ መላክ። ፈጣን እና አስተማማኪ መላክ በዓለም ዙሪያ።',
                 feature_quality_guarantee: 'ጥራዝ ዋስትና',
                 feature_quality_guarantee_desc: 'ሁሉም እቃዎች ከተለመዱ ምርቶች ከጥራዝ ማረጋገጫ ጋር ይገኛሉ።',
                 feature_easy_returns: 'ቀላል መመለሻ',
                 feature_easy_returns_desc: '30-ቀን ምንም ጥያቄ የለሽ መመለሻ ፖሊሲ።',
                 feature_support: '24/7 ድጋፍ',
-                feature_support_desc: 'በማንኛም ጊዜ ለመርዳት ዝግጁ የደንበኛ አገልግሎት ቡድን።',
                 
                 // Homepage Additional Content
                 hero_badge_art: 'የጥበብ እቃዎች ስብስብ',
@@ -751,8 +668,6 @@ class I18n {
                 // Order Processing
                 order_placed: 'ትዥዛዝ ተሰጥቷል',
                 order_processing: 'ትዥዛዝ በማቀናቅ ላይ',
-                order_shipped: 'ትዥዛዝ ተልኳል',
-                order_delivered: 'ትዥዛዝ ተሰጥቷል',
                 order_cancelled: 'ትዥዛዝ ተሰርዟል',
                 
                 // Error Messages
@@ -796,36 +711,27 @@ class I18n {
                 items: 'እቃዎች',
                 quantity: 'ብዛት',
                 price: 'ዋጋ',
-                total: 'ጠቅላላ',
-                subtotal: 'የንጥል ዋጋ',
-                discount: 'ቅናሽ',
-                tax: 'ታክስ',
-                shipping: 'መላክ',
                 
                 // Status
                 active: 'ንቁ',
                 inactive: 'ተሽሯል',
                 pending: 'በጥበብ ላይ',
-                completed: 'ተጠናቋል',
                 cancelled: 'ተሰርዟል',
-                failed: 'አልተሳካም',
                 
                 // Social
-                share: 'ያጋሩ',
                 like: 'ደስዎትላለሁ',
                 follow: 'ተከተሉ',
                 subscribe: 'ይመዝገቡ',
                 contact: 'ያግኙ',
                 
                 // Navigation Additional
-                home: 'ቤት',
                 back_to_top: 'ወደ ላይ ይመለሱ',
                 continue_shopping: 'ግዢውን ይቀጥሉ',
                 view_cart: 'ሳጥንን ይመልከቱ',
                 checkout: 'መርምሄ',
                 
                 // Footer
-                footer_copyright: '© 2024 SmartStationery. All rights reserved.',
+                footer_copyright: '© 2026 SmartStationery. All rights reserved.',
                 footer_privacy: 'የግላጽ ፖሊሲ',
                 footer_terms: 'የአጠቃቀም ውልደት',
                 footer_contact: 'አድራሻ',
@@ -992,7 +898,6 @@ class I18n {
                 completed: 'ተጠናቋል',
                 failed: 'አልተሳካም',
                 retry: 'እንደገና ይሞክሩ',
-                close: 'ዝጋ',
                 cancel: 'ይቅር',
                 confirm: 'ያረጋግጡ',
                 yes: 'አዎ',
@@ -1075,6 +980,8 @@ class I18n {
                 nav_brand: 'SmartStationery',
                 footer_description: 'ለልዩ ጥራት ያላቸው የጽህፈት መሳሪያዎች፣ የጥበብ እቃዎች እና የቢሮ አስፈላጊ ነገሮች ብቸኛ መደብርዎ።',
                 footer_address: 'ፒያሳ፣ አዲስ አበባ፣ ኢትዮጵያ',
+                footer_phone: '+251956785524',
+                footer_email: 'sura56785524@gmail.com',
                 about_title: 'ስለ SmartStationery',
                 about_hero_subtitle: 'ከ2026 ጀምሮ በፕሪሚየም የጽህፈት መሳሪያዎች አማካኝነት ፈጠራን እና ምርታማነትን ማገዝ።',
                 about_mission_title: 'የእኛ ተልዕኮ',
@@ -1110,6 +1017,7 @@ class I18n {
                 map_title: 'ካርታ',
 
                 // Assistant
+                assistant_title: 'የ InkSpire AI ረዳት',
                 assistant_welcome: 'ሰላም! እኔ የ InkSpire ረዳት ነኝ — ስለ ምርቶቻችን፣ መላኪያ፣ ክፍያ ወይም ስለ ቅርጫትዎ ማንኛውንም ነገር ይጠይቁኝ።',
                 assistant_placeholder: 'ጥያቄ ይጠይቁ…',
                 assistant_thinking: 'በማሰብ ላይ…',
@@ -1213,6 +1121,13 @@ class I18n {
                 testimonial3_text: '"በመስመር ላይ ካሉ ምርጥ የጽህፈት መሳሪያ መደብሮች አንዱ! የውሃ ቀለም ስብስቡ ከጠበቅኩት በላይ ነው። ቀለሞቹ ደማቅ ናቸው እና ብሩሾቹም ከፍተኛ ጥራት ያላቸው ናቸው።"',
                 testimonial3_name: 'ኤሚሊ ቼን',
                 testimonial3_role: 'የውሃ ቀለም አርቲስት'
+
+                // Newly Added Keys
+                hero_stats_years: 'የዓመታት ልምድ',
+                team_member1_name: 'ሱራፌል አለሙ',
+                team_member2_name: 'አጂበው አበበ',
+                team_member3_name: 'ገንዘብ ዳግም',
+
             }
         };
     }
